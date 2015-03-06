@@ -1,6 +1,8 @@
-# front-end-face-questions
+# front-end-Interview-Questions
 史上最全 前端开发面试问题及答案整理
 本文旨在加深对前端知识点的理解，资料来源于网络，由本人收集整理。
+
+本文旨在加深对前端知识点的理解，资料来源于网络，由本人（博客：http://segmentfault.com/u/trigkit4）收集整理。
 
 前端开发面试知识点大纲：
 ------------
@@ -176,7 +178,7 @@ CSS 相关问题
 
     1.   
       block 象块类型元素一样显示。
-      none 缺省值。象行内元素类型一样显示。
+      inline 缺省值。象行内元素类型一样显示。
       inline-block 象行内元素一样显示，但其内容象块类型元素一样显示。
       list-item 象块类型元素一样显示，并添加样式列表标记。
     
@@ -197,10 +199,14 @@ CSS 相关问题
 
 ###CSS3有哪些新特性？
 
-    CSS3实现圆角（border-radius:8px），阴影（box-shadow:10px），
-      对文字加特效（text-shadow、），线性渐变（gradient），旋转（transform）
-      transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转,缩放,定位,倾斜
-      增加了更多的CSS选择器  多背景 rgba 
+    CSS3实现圆角（border-radius），阴影（box-shadow），
+    对文字加特效（text-shadow、），线性渐变（gradient），旋转（transform）
+    transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转,缩放,定位,倾斜
+    增加了更多的CSS选择器  多背景 rgba 
+    在CSS3中唯一引入的伪元素是::selection.
+    媒体查询，多栏布局
+    border-image
+      
 ###为什么要初始化CSS样式。
 
 
@@ -244,11 +250,10 @@ html部分
 
 ###说说你对语义化的理解？
 
-    用正确的标签做正确的事情！
-    html语义化就是让页面的内容结构化，便于对浏览器、搜索引擎解析；
-    在没有样式CCS情况下也以一种文档格式显示，并且是容易阅读的。
-    搜索引擎的爬虫依赖于标记来确定上下文和各个关键字的权重，利于 SEO。
-    使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。
+    1，去掉或者丢失样式的时候能够让页面呈现出清晰的结构
+    2，有利于SEO：和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重；
+    3，方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页；
+    4，便于团队开发和维护，语义化更具可读性，是下一步吧网页的重要动向，遵循W3C标准的团队都遵循这个标准，可以减少差异化。
     
 ###Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?    
 
@@ -408,14 +413,16 @@ HTML与XHTML——二者有什么区别
 
     * HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。
     
-    * 绘画 canvas  
-      用于媒介回放的 video 和 audio 元素 
+    * 拖拽释放(Drag and drop) API 
+      语义化更好的内容标签（header,nav,footer,aside,article,section）
+      音频、视频API(audio,video)
+      画布(Canvas) API
+      地理(Geolocation) API
       本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失；
       sessionStorage 的数据在浏览器关闭后自动删除
     
-      语意化更好的内容元素，比如 article、footer、header、nav、section 
       表单控件，calendar、date、time、email、url、search  
-      新的技术webworker, websockt, Geolocation
+      新的技术webworker, websocket, Geolocation
     
     * 移除的元素
     
@@ -566,7 +573,7 @@ js延迟加载的方式有哪些？
 如何解决跨域问题?
 ---------
 
-        jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页面
+        jsonp、 document.domain+iframe、window.name、window.postMessage、服务器上设置代理页面
         
     jsonp的原理是动态插入script标签
     
@@ -671,7 +678,7 @@ JavaScript中的作用域与变量声明提升？
 ###你认为怎样才是全端工程师（Full Stack developer）？
 
 ###介绍一个你最得意的作品吧？
-
+###项目中遇到什么问题？如何解决？
 ###你的优点是什么？缺点是什么？
 
 ###如何管理前端团队?
@@ -711,21 +718,11 @@ http状态码有那些？分别代表是什么意思？
 一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？
 ----------------------------------
 
-     查找浏览器缓存 
-        DNS解析、查找该域名对应的IP地址、重定向（301）、发出第二个GET请求
-        进行HTTP协议会话
-        客户端发送报头(请求报头)
-        服务器回馈报头(响应报头)
-        html文档开始下载
-        文档树建立，根据标记请求所需指定MIME类型的文件
-        文件显示
-        {
-        浏览器这边做的工作大致分为以下几步：
-    
-        加载：根据请求的URL进行域名解析，向服务器发起请求，接收文件（HTML、JS、CSS、图象等）。
-    
-        解析：对加载到的资源（HTML、JS、CSS等）进行语法解析，建议相应的内部数据结构（比如HTML的DOM树，JS的（对象）属性表，CSS的样式规则等等）
-        }
+         分为4个步骤：
+    （1），当发送一个URL请求时，不管这个URL是Web页面的URL还是Web页面上每个资源的URL，浏览器都会开启一个线程来处理这个请求，同时在远程DNS服务器上启动一个DNS查询。这能使浏览器获得请求对应的IP地址。
+    （2）， 浏览器与远程Web服务器通过TCP三次握手协商来建立一个TCP/IP连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。
+    （3），一旦TCP/IP连接建立，浏览器会通过该连接向远程服务器发送HTTP的GET请求。远程服务器找到资源并使用HTTP响应返回该资源，值为200的HTTP响应状态表示一个正确的响应。
+    （4），此时，Web服务器提供资源服务，客户端开始下载资源。
 
 详情：[从输入 URL 到浏览器接收的过程中发生了什么事情？][7]
 
@@ -1072,7 +1069,7 @@ WEB应用从服务器主动推送Data到客户端有那些方式？
 
 
      1. 我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。是可以被 JavaScript 侦测到的行为。  
-     2. 事件处理机制：IE是事件冒泡、火狐是 事件捕获；
+     2. 事件处理机制：IE是事件冒泡、firefox同时支持两种事件模型，也就是：捕获型事件和冒泡型事件。；
      3.  ev.stopPropagation();
 
 ajax 是什么?ajax 的交互模型?同步和异步的区别?如何解决跨域问题?
@@ -1091,7 +1088,7 @@ ajax 是什么?ajax 的交互模型?同步和异步的区别?如何解决跨域�
       2. Ajax的最大的特点是什么。
     
       Ajax可以实现动态不刷新（局部刷新）
-      readyState属性 状态 有5个可取值： 0=未初始化 ，1=正在加载 2=以加载，3=交互中，4=完成
+      readyState属性 状态 有5个可取值： 0=未初始化 ，1=启动 2=发送，3=接收，4=完成
     
     ajax的缺点
     
@@ -1107,9 +1104,51 @@ ajax 是什么?ajax 的交互模型?同步和异步的区别?如何解决跨域�
     
     跨域： jsonp、 iframe、window.name、window.postMessage、服务器上设置代理页面
 
+js对象的深度克隆
+---------
+
+
+      function clone(Obj) {   
+            var buf;   
+            if (Obj instanceof Array) {   
+                buf = [];  //创建一个空的数组 
+                var i = Obj.length;   
+                while (i--) {   
+                    buf[i] = clone(Obj[i]);   
+                }   
+                return buf;   
+            }else if (Obj instanceof Object){   
+                buf = {};  //创建一个空对象 
+                for (var k in Obj) {  //为这个对象添加新的属性 
+                    buf[k] = clone(Obj[k]);   
+                }   
+                return buf;   
+            }else{   
+                return Obj;   
+            }   
+        }  
+    
+
 AMD和CMD 规范的区别？
 --------------
 详情请见：[详解JavaScript模块化开发][13] 
+
+ 
+
+
+  [1]: http://segmentfault.com/blog/trigkit4/1190000000718840
+  [2]: http://segmentfault.com/blog/trigkit4/1190000000660786#articleHeader15
+  [3]: http://segmentfault.com/blog/trigkit4/1190000000687844
+  [4]: http://segmentfault.com/blog/trigkit4/1190000000758184#articleHeader5
+  [5]: http://segmentfault.com/blog/trigkit4/1190000000800711#articleHeader30
+  [6]: http://segmentfault.com/blog/trigkit4/1190000000656717
+  [7]: http://segmentfault.com/blog/trigkit4/1190000000697254
+  [8]: http://segmentfault.com/blog/trigkit4/1190000002440502
+  [9]: http://segmentfault.com/blog/trigkit4/1190000000691919
+  [10]: http://segmentfault.com/blog/trigkit4/1190000000652891
+  [11]: http://segmentfault.com/blog/trigkit4/1190000002174034
+  [12]: http://segmentfault.com/blog/trigkit4/1190000000691919
+  [13]: http://segmentfault.com/blog/trigkit4/1190000000733959
 
  
 
