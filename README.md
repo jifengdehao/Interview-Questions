@@ -1,8 +1,4 @@
-# front-end-Interview-Questions
-史上最全 前端开发面试问题及答案整理
-本文旨在加深对前端知识点的理解，资料来源于网络，由本人收集整理。
-
-本文旨在加深对前端知识点的理解，资料来源于网络，由本人（博客)：http://segmentfault.com/u/trigkit4 收集整理。
+本文旨在加深对前端知识点的理解，资料来源于网络，由本人（博客：http://segmentfault.com/u/trigkit4）收集整理。
 
 前端开发面试知识点大纲：
 ------------
@@ -112,13 +108,13 @@ CSS 相关问题
             2.类选择器（.myclassname）
             3.标签选择器（div, h1, p）
             4.相邻选择器（h1 + p）
-            5.子选择器（ul < li）
+            5.子选择器（ul > li）
             6.后代选择器（li a）
             7.通配符选择器（ * ）
             8.属性选择器（a[rel = "external"]）
-            9.伪类选择器（a: hover, li: nth - child）
+            9.伪类选择器（a: hover, li:nth-child）
         
-        *   可继承的样式： font-size font-family color, UL LI DL DD DT;
+        *   可继承的样式： font-size font-family color, text-indent;
         
         *   不可继承的样式：border padding margin width height ;
         
@@ -131,7 +127,7 @@ CSS 相关问题
     
        !important >  id > class > tag  
     
-       important 比 内联优先级高
+       important 比 内联优先级高,但内联比 id 要高
     
     CSS3新增伪类举例：
     
@@ -174,7 +170,7 @@ CSS 相关问题
     
     如果权重相同，则最后定义的样式会起作用，但是应该避免这种情况出现
 
-###列出display的值，说明他们的作用。position的值， relative和absolute定位原点是？
+###列出display的值，说明他们的作用。position的值， relative和absolute分别是相对于谁进行定位的？
 
     1.   
       block 象块类型元素一样显示。
@@ -184,13 +180,13 @@ CSS 相关问题
     
       2. 
       *absolute 
-            生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。 
+            生成绝对定位的元素，相对于 static 定位以外的第一个祖先元素进行定位。 
     
       *fixed （老IE不支持）
             生成绝对定位的元素，相对于浏览器窗口进行定位。 
     
       *relative 
-            生成相对定位的元素，相对于其正常位置进行定位。 
+            生成相对定位的元素，相对于其在普通流中的位置进行定位。 
     
       * static  默认值。没有定位，元素出现在正常的流中
       *（忽略 top, bottom, left, right z-index 声明）。
@@ -236,12 +232,12 @@ CSS 相关问题
 
 
 ###对BFC规范的理解？
-     BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。   
-    （W3C CSS 2.1 规范中的一个概念,它决定了元素如何对其内容进行定位,以及与其他元素的关 系和相互作用。）
+          BFC，块级格式化上下文，一个创建了新的BFC的盒子是独立布局的，盒子里面的子元素的样式不会影响到外面的元素。在同一个BFC中的两个毗邻的块级盒在垂直方向（和布局方向有关系）的margin会发生折叠。
+        （W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行布局，以及与其他元素的关系和相互作用。）
 
 ###解释下 CSS sprites，以及你要如何在页面或网站中使用它。
 
-    CSS Sprites其实就是把网页中一些背景图片整合到一张图片文件中，再利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字能精确的定位出背景图片的位置。
+    CSS Sprites其实就是把网页中一些背景图片整合到一张图片文件中，再利用CSS的“background-image”，“background- repeat”，“background-position”的组合进行背景定位，background-position可以用数字能精确的定位出背景图片的位置。这样可以减少很多图片请求的开销，因为请求耗时比较长；请求虽然可以并发，但是也有限制，一般浏览器都是6个。对于未来而言，就不需要这样做了，因为有了`http2`。
 
 
 
@@ -257,7 +253,7 @@ html部分
     
 ###Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?    
 
-    （1）、<!DOCTYPE> 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器的解析器，用什么文档类型 规范来解析这个文档。 
+    （1）、<!DOCTYPE> 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器以何种模式来渲染文档。 
     
     （2）、严格模式的排版和 JS 运作模式是  以该浏览器支持的最高标准运行。
     
@@ -289,7 +285,7 @@ HTML与XHTML——二者有什么区别
 常见兼容性问题？
 --------
 
-    * png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.
+    * png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.也可以引用一段脚本处理.
     
     * 浏览器默认的margin和padding不同。解决方案是加一个全局的*{margin:0;padding:0;}来统一。
     
@@ -329,7 +325,7 @@ HTML与XHTML——二者有什么区别
     * 超链接访问过后hover样式就不出现了 被点击访问过的超链接样式不在具有hover和active了解决方法是改变CSS属性的排列顺序:
     L-V-H-A :  a:link {} a:visited {} a:hover {} a:active {}
     
-    * 怪异模式问题：漏写DTD声明，Firefox仍然会按照标准模式来解析网页，但在IE中会触发怪异模式。为避免怪异模式给我们带来不必要的麻烦，最好养成书写DTD声明的好习惯。
+    * 怪异模式问题：漏写DTD声明，Firefox仍然会按照标准模式来解析网页，但在IE中会触发怪异模式。为避免怪异模式给我们带来不必要的麻烦，最好养成书写DTD声明的好习惯。现在可以使用[html5](http://www.w3.org/TR/html5/single-page.html)推荐的写法：`<doctype html>`
     
     * 上下margin重合问题
     ie和ff都存在，相邻的两个div的margin-left和margin-right不会重合，但是margin-top和margin-bottom却会发生重合。
@@ -621,8 +617,6 @@ JavaScript中的作用域与变量声明提升？
 
 ###常使用的库有哪些？常用的前端开发工具？开发过什么应用或组件？
 
-###页面重构怎么操作？
-
 ###列举IE 与其他浏览器不一样的特性？
 
 ###99%的网站都需要被重构是那本书上写的？
@@ -652,7 +646,7 @@ JavaScript中的作用域与变量声明提升？
 ###除了前端以外还了解什么其它技术么？你最最厉害的技能是什么？
 
 ###你常用的开发工具是什么，为什么？
-###数组去重？
+
 ###对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？
 
     前端是最贴近用户的程序员，比后端、数据库、产品经理、运营、安全都近。
@@ -834,6 +828,7 @@ grunt， YUI compressor 和 google clojure用来进行代码压缩的用法。
     //压缩CSS
     java -jar yuicompressor-2.4.2.jar --type css --charset utf-8 -v src.css > packed.css
 
+详情请见：[你需要掌握的前端代码性能优化工具][10] 
 
 Flash、Ajax各自的优缺点，在使用中如何取舍？
 --------------------------
@@ -940,12 +935,12 @@ GET和POST的区别，何时使用POST？
 
 闭包相关问题？
 -------
-详情请见：[详解js闭包][10]
+详情请见：[详解js闭包][11]
     
 
 js事件处理程序问题？
 -----------
-详情请见：[JavaScript学习总结（九）事件详解][11]
+详情请见：[JavaScript学习总结（九）事件详解][12]
     
     
 
@@ -1070,11 +1065,11 @@ WEB应用从服务器主动推送Data到客户端有那些方式？
 
      1. 我们在网页中的某个操作（有的操作对应多个事件）。例如：当我们点击一个按钮就会产生一个事件。是可以被 JavaScript 侦测到的行为。  
      2. 事件处理机制：IE是事件冒泡、firefox同时支持两种事件模型，也就是：捕获型事件和冒泡型事件。；
-     3.  ev.stopPropagation();
+     3.  ev.stopPropagation();注意旧ie的方法 ev.cancelBubble = true;
 
 ajax 是什么?ajax 的交互模型?同步和异步的区别?如何解决跨域问题?
 --------------------------------------
-详情请见：[JavaScript学习总结（七）Ajax和Http状态字][12]
+详情请见：[JavaScript学习总结（七）Ajax和Http状态字][13]
     
 
   
@@ -1131,9 +1126,91 @@ js对象的深度克隆
 
 AMD和CMD 规范的区别？
 --------------
-详情请见：[详解JavaScript模块化开发][13] 
+详情请见：[详解JavaScript模块化开发][14] 
 
- 
+网站重构的理解？
+--------
+
+    网站重构：在不改变外部行为的前提下，简化结构、添加可读性，而在网站前端保持一致的行为。也就是说是在不改变UI的情况下，对网站进行优化，在扩展的同时保持一致的UI。
+    
+    对于传统的网站来说重构通常是：
+    
+    表格(table)布局改为DIV+CSS
+    使网站前端兼容于现代浏览器(针对于不合规范的CSS、如对IE6有效的)
+    对于移动平台的优化
+    针对于SEO进行优化
+    深层次的网站重构应该考虑的方面
+    
+    减少代码间的耦合
+    让代码保持弹性
+    严格按规范编写代码
+    设计可扩展的API
+    代替旧有的框架、语言(如VB)
+    增强用户体验
+    通常来说对于速度的优化也包含在重构中
+    
+    压缩JS、CSS、image等前端资源(通常是由服务器来解决)
+    程序的性能优化(如数据读写)
+    采用CDN来加速资源加载
+    对于JS DOM的优化
+    HTTP服务器的文件缓存
+
+如何获取UA？
+-------
+
+    <script> 
+        function whatBrowser() {  
+            document.Browser.Name.value=navigator.appName;  
+            document.Browser.Version.value=navigator.appVersion;  
+            document.Browser.Code.value=navigator.appCodeName;  
+            document.Browser.Agent.value=navigator.userAgent;  
+        }  
+    </script>
+
+js数组去重
+------
+以下是数组去重的三种方法：
+
+    Array.prototype.unique1 = function () {
+      var n = []; //一个新的临时数组
+      for (var i = 0; i < this.length; i++) //遍历当前数组
+      {
+        //如果当前数组的第i已经保存进了临时数组，那么跳过，
+        //否则把当前项push到临时数组里面
+        if (n.indexOf(this[i]) == -1) n.push(this[i]);
+      }
+      return n;
+    }
+    
+    Array.prototype.unique2 = function()
+    {
+    	var n = {},r=[]; //n为hash表，r为临时数组
+    	for(var i = 0; i < this.length; i++) //遍历当前数组
+    	{
+    		if (!n[this[i]]) //如果hash表中没有当前项
+    		{
+    			n[this[i]] = true; //存入hash表
+    			r.push(this[i]); //把当前数组的当前项push到临时数组里面
+    		}
+    	}
+    	return r;
+    }
+    
+    Array.prototype.unique3 = function()
+    {
+    	var n = [this[0]]; //结果数组
+    	for(var i = 1; i < this.length; i++) //从第二项开始遍历
+    	{
+    		//如果当前数组的第i项在当前数组中第一次出现的位置不是i，
+    		//那么表示第i项是重复的，忽略掉。否则存入结果数组
+    		if (this.indexOf(this[i]) == i) n.push(this[i]);
+    	}
+    	return n;
+    }
+
+
+
+> 我的微博：http://weibo.com/hwax1993 ，欢迎关注 
 
 
   [1]: http://segmentfault.com/blog/trigkit4/1190000000718840
@@ -1145,25 +1222,8 @@ AMD和CMD 规范的区别？
   [7]: http://segmentfault.com/blog/trigkit4/1190000000697254
   [8]: http://segmentfault.com/blog/trigkit4/1190000002440502
   [9]: http://segmentfault.com/blog/trigkit4/1190000000691919
-  [10]: http://segmentfault.com/blog/trigkit4/1190000000652891
-  [11]: http://segmentfault.com/blog/trigkit4/1190000002174034
-  [12]: http://segmentfault.com/blog/trigkit4/1190000000691919
-  [13]: http://segmentfault.com/blog/trigkit4/1190000000733959
-
- 
-
-> 我的微博：http://weibo.com/hwax1993 ，欢迎关注
-
-  [1]: http://segmentfault.com/blog/trigkit4/1190000000718840
-  [2]: http://segmentfault.com/blog/trigkit4/1190000000660786#articleHeader15
-  [3]: http://segmentfault.com/blog/trigkit4/1190000000687844
-  [4]: http://segmentfault.com/blog/trigkit4/1190000000758184#articleHeader5
-  [5]: http://segmentfault.com/blog/trigkit4/1190000000800711#articleHeader30
-  [6]: http://segmentfault.com/blog/trigkit4/1190000000656717
-  [7]: http://segmentfault.com/blog/trigkit4/1190000000697254
-  [8]: http://segmentfault.com/blog/trigkit4/1190000002440502
-  [9]: http://segmentfault.com/blog/trigkit4/1190000000691919
-  [10]: http://segmentfault.com/blog/trigkit4/1190000000652891
-  [11]: http://segmentfault.com/blog/trigkit4/1190000002174034
-  [12]: http://segmentfault.com/blog/trigkit4/1190000000691919
-  [13]: http://segmentfault.com/blog/trigkit4/1190000000733959
+  [10]: http://segmentfault.com/blog/trigkit4/1190000002585760
+  [11]: http://segmentfault.com/blog/trigkit4/1190000000652891
+  [12]: http://segmentfault.com/blog/trigkit4/1190000002174034
+  [13]: http://segmentfault.com/blog/trigkit4/1190000000691919
+  [14]: http://segmentfault.com/blog/trigkit4/1190000000733959
