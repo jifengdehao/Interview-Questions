@@ -1,7 +1,4 @@
-front-end-Interview-Questions
------------------
-
--本文旨在加深对前端知识点的理解，资料来源于网络，由本人（博客)：http://segmentfault.com/u/trigkit4 收集整理。
+本文旨在加深对前端知识点的理解，资料来源于网络，由本人（博客：http://segmentfault.com/u/trigkit4）收集整理。
 
 前端开发面试知识点大纲：
 ------------
@@ -103,6 +100,8 @@ CSS 相关问题
     
     2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border).
 
+![图片描述][1]
+
 ###CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？
 
  
@@ -142,36 +141,7 @@ CSS 相关问题
     p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <p> 元素。
     :enabled  :disabled 控制表单控件的禁用状态。
     :checked        单选框或复选框被选中。
-###css定义的权重
-
-    以下是权重的规则：标签的权重为1，class的权重为10，id的权重为100，以下例子是演示各种定义的权重值：
-    
-    /*权重为1*/
-    div{
-    
-    }
-    /*权重为10*/
-    .class1{
-    
-    }
-    /*权重为100*/
-    #id1{
-    
-    }
-    /*权重为100+1=101*/
-    #id1 div{
-    
-    }
-    /*权重为10+1=11*/
-    .class1 div{
-    
-    }
-    /*权重为10+10+1=21*/
-    .class1 .class2 div{
-    
-    } 
-    
-    如果权重相同，则最后定义的样式会起作用，但是应该避免这种情况出现
+ 
 
 ###列出display的值，说明他们的作用。position的值， relative和absolute分别是相对于谁进行定位的？
 
@@ -577,7 +547,7 @@ js延迟加载的方式有哪些？
     jsonp的原理是动态插入script标签
     
     
-具体参见：[详解js跨域问题][1]
+具体参见：[详解js跨域问题][2]
 
 
 documen.write和 innerHTML的区别
@@ -590,7 +560,7 @@ documen.write和 innerHTML的区别
 .call() 和 .apply() 的区别和作用？
 -----------------------
 作用：动态改变某个类的某个方法的运行环境。
-区别参见：[JavaScript学习总结（四）function函数部分][2]
+区别参见：[JavaScript学习总结（四）function函数部分][3]
 
 哪些操作会造成内存泄漏？
 ------------
@@ -601,12 +571,12 @@ documen.write和 innerHTML的区别
     setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。
     闭包、控制台日志、循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）
 
-详见：[详解js变量、作用域及内存][3]
+详见：[详解js变量、作用域及内存][4]
 
 JavaScript中的作用域与变量声明提升？
 -----------------------
 
-详见：[详解JavaScript函数模式][4]
+详见：[详解JavaScript函数模式][5]
 
 如何判断当前脚本运行在浏览器还是node环境中？
 ------------------------
@@ -632,7 +602,7 @@ JavaScript中的作用域与变量声明提升？
     
     渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能,向页面增加无害于基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。
 
-详见：[css学习归纳总结（一）][5]
+详见：[css学习归纳总结（一）][6]
 
 ###WEB应用从服务器主动推送Data到客户端有那些方式？
 
@@ -685,7 +655,7 @@ JavaScript中的作用域与变量声明提升？
 你有哪些性能优化的方法？
 ------------
 
- （[详情请看雅虎14条性能优化原则][6]）。
+ （[详情请看雅虎14条性能优化原则][7]）。
     
       （1） 减少http请求次数：CSS Sprites, JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器。
     
@@ -715,13 +685,18 @@ http状态码有那些？分别代表是什么意思？
 一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？
 ----------------------------------
 
-         分为4个步骤：
-    （1），当发送一个URL请求时，不管这个URL是Web页面的URL还是Web页面上每个资源的URL，浏览器都会开启一个线程来处理这个请求，同时在远程DNS服务器上启动一个DNS查询。这能使浏览器获得请求对应的IP地址。
-    （2）， 浏览器与远程Web服务器通过TCP三次握手协商来建立一个TCP/IP连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。
-    （3），一旦TCP/IP连接建立，浏览器会通过该连接向远程服务器发送HTTP的GET请求。远程服务器找到资源并使用HTTP响应返回该资源，值为200的HTTP响应状态表示一个正确的响应。
-    （4），此时，Web服务器提供资源服务，客户端开始下载资源。
+     
 
-详情：[从输入 URL 到浏览器接收的过程中发生了什么事情？][7]
+        分为4个步骤：
+        （1），当发送一个URL请求时，不管这个URL是Web页面的URL还是Web页面上每个资源的URL，浏览器都会开启一个线程来处理这个请求，同时在远程DNS服务器上启动一个DNS查询。这能使浏览器获得请求对应的IP地址。
+        （2）， 浏览器与远程Web服务器通过TCP三次握手协商来建立一个TCP/IP连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。
+        （3），一旦TCP/IP连接建立，浏览器会通过该连接向远程服务器发送HTTP的GET请求。远程服务器找到资源并使用HTTP响应返回该资源，值为200的HTTP响应状态表示一个正确的响应。
+        （4），此时，Web服务器提供资源服务，客户端开始下载资源。
+        
+    请求返回后，便进入了我们关注的前端模块
+    简单来说，浏览器会解析HTML生成DOM Tree，其次会根据CSS生成CSS Rule Tree，而javascript又可以根据DOM API操作DOM
+
+详情：[从输入 URL 到浏览器接收的过程中发生了什么事情？][8]
 
 平时如何管理你的项目？
 -----------
@@ -767,7 +742,7 @@ javascript继承的6种方法
     5，寄生式继承
     6，寄生组合式继承
 
-详情：[JavaScript继承方式详解][8]
+详情：[JavaScript继承方式详解][9]
 ajax过程
 ------
 
@@ -783,7 +758,7 @@ ajax过程
     
     (6)使用JavaScript和DOM实现局部刷新.
 
-详情：[JavaScript学习总结（七）Ajax和Http状态字][9]
+详情：[JavaScript学习总结（七）Ajax和Http状态字][10]
 
 异步加载和延迟加载
 ---------
@@ -831,7 +806,7 @@ grunt， YUI compressor 和 google clojure用来进行代码压缩的用法。
     //压缩CSS
     java -jar yuicompressor-2.4.2.jar --type css --charset utf-8 -v src.css > packed.css
 
-详情请见：[你需要掌握的前端代码性能优化工具][10] 
+详情请见：[你需要掌握的前端代码性能优化工具][11] 
 
 Flash、Ajax各自的优缺点，在使用中如何取舍？
 --------------------------
@@ -938,12 +913,12 @@ GET和POST的区别，何时使用POST？
 
 闭包相关问题？
 -------
-详情请见：[详解js闭包][11]
+详情请见：[详解js闭包][12]
     
 
 js事件处理程序问题？
 -----------
-详情请见：[JavaScript学习总结（九）事件详解][12]
+详情请见：[JavaScript学习总结（九）事件详解][13]
     
     
 
@@ -1072,7 +1047,7 @@ WEB应用从服务器主动推送Data到客户端有那些方式？
 
 ajax 是什么?ajax 的交互模型?同步和异步的区别?如何解决跨域问题?
 --------------------------------------
-详情请见：[JavaScript学习总结（七）Ajax和Http状态字][13]
+详情请见：[JavaScript学习总结（七）Ajax和Http状态字][14]
     
 
   
@@ -1129,7 +1104,7 @@ js对象的深度克隆
 
 AMD和CMD 规范的区别？
 --------------
-详情请见：[详解JavaScript模块化开发][14] 
+详情请见：[详解JavaScript模块化开发][15] 
 
 网站重构的理解？
 --------
@@ -1210,23 +1185,111 @@ js数组去重
     	}
     	return n;
     }
+    
+
+HTTP状态码
+-------
+
+    100  Continue  继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息
+    200  OK   正常返回信息
+    201  Created  请求成功并且服务器创建了新的资源
+    202  Accepted  服务器已接受请求，但尚未处理
+    301  Moved Permanently  请求的网页已永久移动到新位置。
+    302 Found  临时性重定向。
+    303 See Other  临时性重定向，且总是使用 GET 请求新的 URI。
+    304  Not Modified  自从上次请求后，请求的网页未修改过。
+    
+    400 Bad Request  服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求。
+    401 Unauthorized  请求未授权。
+    403 Forbidden  禁止访问。
+    404 Not Found  找不到如何与 URI 相匹配的资源。
+    
+    500 Internal Server Error  最常见的服务器端错误。
+    503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
+
+cache-control
+-------------
+
+网页的缓存是由HTTP消息头中的`“Cache-control”`来控制的，常见的取值有`private、no-cache、max-age、must-revalidate`等，默认为`private`。
+
+`Expires` 头部字段提供一个日期和时间，响应在该日期和时间后被认为失效。允许客户端在这个时间之前不去检查（发请求），等同`max-age`的效果。但是如果同时存在，则被`Cache-Control`的`max-age`覆盖。
+
+    Expires = "Expires" ":" HTTP-date
+
+例如
+
+    Expires: Thu, 01 Dec 1994 16:00:00 GMT （必须是GMT格式）
+
+如果把它设置为`-1`，则表示立即过期
+
+`Expires`和`max-age`都可以用来指定文档的过期时间，但是二者有一些细微差别
+
+    1.Expires在HTTP/1.0中已经定义，Cache-Control:max-age在HTTP/1.1中才有定义，为了向下兼容，仅使用max-age不够；
+    2.Expires指定一个绝对的过期时间(GMT格式),这么做会导致至少2个问题：1)客户端和服务器时间不同步导致Expires的配置出现问题。 2）很容易在配置后忘记具体的过期时间，导致过期来临出现浪涌现象；
+    
+    3.max-age 指定的是从文档被访问后的存活时间，这个时间是个相对值(比如:3600s),相对的是文档第一次被请求时服务器记录的Request_time(请求时间)
+    
+    4.Expires指定的时间可以是相对文件的最后访问时间(Atime)或者修改时间(MTime),而max-age相对对的是文档的请求时间(Atime)
+    
+    如果值为no-cache,那么每次都会访问服务器。如果值为max-age,则在过期之前不会重复访问服务器。
+
+js操作获取和设置cookie
+---------------
+
+    
+    //创建cookie
+    function setCookie(name, value, expires, path, domain, secure) {
+    	var cookieText = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    	if (expires instanceof Date) {
+    		cookieText += '; expires=' + expires;
+    	}
+    	if (path) {
+    		cookieText += '; expires=' + expires;
+    	}
+    	if (domain) {
+    		cookieText += '; domain=' + domain;
+    	}
+    	if (secure) {
+    		cookieText += '; secure';
+    	}
+    	document.cookie = cookieText;
+    }
+    
+    //获取cookie
+    function getCookie(name) {
+    	var cookieName = encodeURIComponent(name) + '=';
+    	var cookieStart = document.cookie.indexOf(cookieName);
+    	var cookieValue = null;
+    	if (cookieStart > -1) {
+    		var cookieEnd = document.cookie.indexOf(';', cookieStart);
+    		if (cookieEnd == -1) {
+    			cookieEnd = document.cookie.length;
+    		}
+    		cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd));
+    	}
+    	return cookieValue;
+    }
+    
+    //删除cookie
+    function unsetCookie(name) {
+    	document.cookie = name + "= ; expires=" + new Date(0);
+    }
+
+ 
 
 
-
-> 我的微博：http://weibo.com/hwax1993 ，欢迎关注 
-
-
-  [1]: http://segmentfault.com/blog/trigkit4/1190000000718840
-  [2]: http://segmentfault.com/blog/trigkit4/1190000000660786#articleHeader15
-  [3]: http://segmentfault.com/blog/trigkit4/1190000000687844
-  [4]: http://segmentfault.com/blog/trigkit4/1190000000758184#articleHeader5
-  [5]: http://segmentfault.com/blog/trigkit4/1190000000800711#articleHeader30
-  [6]: http://segmentfault.com/blog/trigkit4/1190000000656717
-  [7]: http://segmentfault.com/blog/trigkit4/1190000000697254
-  [8]: http://segmentfault.com/blog/trigkit4/1190000002440502
-  [9]: http://segmentfault.com/blog/trigkit4/1190000000691919
-  [10]: http://segmentfault.com/blog/trigkit4/1190000002585760
-  [11]: http://segmentfault.com/blog/trigkit4/1190000000652891
-  [12]: http://segmentfault.com/blog/trigkit4/1190000002174034
-  [13]: http://segmentfault.com/blog/trigkit4/1190000000691919
-  [14]: http://segmentfault.com/blog/trigkit4/1190000000733959
+  [1]: /img/bVldFY
+  [2]: http://segmentfault.com/blog/trigkit4/1190000000718840
+  [3]: http://segmentfault.com/blog/trigkit4/1190000000660786#articleHeader15
+  [4]: http://segmentfault.com/blog/trigkit4/1190000000687844
+  [5]: http://segmentfault.com/blog/trigkit4/1190000000758184#articleHeader5
+  [6]: http://segmentfault.com/blog/trigkit4/1190000000800711#articleHeader30
+  [7]: http://segmentfault.com/blog/trigkit4/1190000000656717
+  [8]: http://segmentfault.com/blog/trigkit4/1190000000697254
+  [9]: http://segmentfault.com/blog/trigkit4/1190000002440502
+  [10]: http://segmentfault.com/blog/trigkit4/1190000000691919
+  [11]: http://segmentfault.com/blog/trigkit4/1190000002585760
+  [12]: http://segmentfault.com/blog/trigkit4/1190000000652891
+  [13]: http://segmentfault.com/blog/trigkit4/1190000002174034
+  [14]: http://segmentfault.com/blog/trigkit4/1190000000691919
+  [15]: http://segmentfault.com/blog/trigkit4/1190000000733959
