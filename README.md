@@ -1,16 +1,18 @@
 本文旨在加深对前端知识点的理解，资料来源于网络，由本人（博客：http://segmentfault.com/u/trigkit4）收集整理。
 
-前端开发面试知识点大纲：
-------------
+##说说你对闭包的理解
 
-    HTML&CSS：  对Web标准的理解、浏览器内核差异、兼容性、hack、CSS基本功：布局、盒子模型、选择器优先级及使用、HTML5、CSS3、移动端适应。
-     
-    JavaScript：   数据类型、面向对象、继承、闭包、插件、作用域、跨域、原型链、模块化、自定义事件、内存泄漏、事件机制、异步装载回调、模板引擎、Nodejs、JSON、ajax等。
-    
-    其他：  HTTP、安全、正则、优化、重构、响应式、移动端、团队协作、可维护、SEO、UED、架构、职业生涯 
+使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。
 
+
+
+闭包有三个特性：
+
+>1.函数嵌套函数
+>2.函数内部可以引用外部的参数和变量
+>3.参数和变量不会被垃圾回收机制回收
  
-1.请你谈谈Cookie的弊端
+请你谈谈Cookie的弊端
 -----------------
 `cookie`虽然在持久保存客户端数据提供了方便，分担了服务器存储的负担，但还是有很多局限性的。
 第一：每个特定的域名下最多生成20个`cookie`
@@ -42,7 +44,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
     
     3.有些状态不可能保存在客户端。例如，为了防止重复提交表单，我们需要在服务器端保存一个计数器。如果我们把这个计数器保存在客户端，那么它起不到任何作用。
 
-2.浏览器本地存储
+浏览器本地存储
 ---------
 在较高版本的浏览器中，`js`提供了`sessionStorage`和`globalStorage`。在`HTML5`中提供了`localStorage`来取代`globalStorage`。
 
@@ -52,23 +54,34 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
 而`localStorage`用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
 
-3.web storage和cookie的区别
------------------------
+###web storage和cookie的区别
+
 
 `Web Storage`的概念和`cookie`相似，区别是它是为了更大容量存储设计的。`Cookie`的大小是受限的，并且每次你请求一个新的页面的时候`Cookie`都会被发送过去，这样无形中浪费了带宽，另外`cookie`还需要指定作用域，不可以跨域调用。
 
 除此之外，`Web Storage`拥有`setItem,getItem,removeItem,clear`等方法，不像`cookie`需要前端开发者自己封装`setCookie，getCookie`。
 
-但是`Cookie`也是不可以或缺的：`Cookie`的作用是与服务器进行交互，作为`HTTP`规范的一部分而存在 ，而`Web Storage`仅仅是为了在本地“存储”数据而生
+但是`cookie`也是不可以或缺的：`cookie`的作用是与服务器进行交互，作为`HTTP`规范的一部分而存在 ，而`Web Storage`仅仅是为了在本地“存储”数据而生
 
-浏览器的支持除了`IE７`及以下不支持外，其他标准浏览器都完全支持(ie及FF需在web服务器里运行)，值得一提的是IE总是办好事，例如IE7、IE6中的`UserData`其实就是`javascript`本地存储的解决方案。通过简单的代码封装可以统一到所有的浏览器都支持`web storage`。
+浏览器的支持除了`IE７`及以下不支持外，其他标准浏览器都完全支持(ie及FF需在web服务器里运行)，值得一提的是IE总是办好事，例如IE7、IE6中的`userData`其实就是`javascript`本地存储的解决方案。通过简单的代码封装可以统一到所有的浏览器都支持`web storage`。
 
 
 
 `localStorage`和`sessionStorage`都具有相同的操作方法，例如`setItem、getItem`和`removeItem`等
 
 
+
+###cookie 和session 的区别：
  
+     1、cookie数据存放在客户的浏览器上，session数据放在服务器上。
+     2、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗
+        考虑到安全应当使用session。
+     3、session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能
+         考虑到减轻服务器性能方面，应当使用COOKIE。
+     4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
+     5、所以个人建议：
+        将登陆信息等重要信息存放为SESSION
+        其他信息如果需要保留，可以放在COOKIE中
 
 CSS 相关问题
 --------
@@ -84,21 +97,29 @@ CSS 相关问题
 ###CSS中 link 和@import 的区别是？
  
 
-    A：(1) link属于HTML标签，而@import是CSS提供的; (2) 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;(3) import只在IE5以上才能识别，而link是HTML标签，无兼容问题; (4) link方式的样式的权重 高于@import的权重.
+    (1) link属于HTML标签，而@import是CSS提供的; 
+    (2) 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;
+    (3) import只在IE5以上才能识别，而link是HTML标签，无兼容问题; 
+    (4) link方式的样式的权重 高于@import的权重.
     
-###position的absolute与fixed共同点与不同点    
+###position:absolute和float属性的异同  
     
     A：共同点：
-    1.改变行内元素的呈现方式，display被置为block；2.让元素脱离普通流，不占据空间；3.默认会覆盖到非定位元素上
+    对内联元素设置`float`和`absolute`属性，可以让元素脱离文档流，并且可以设置其宽高。
     
-    B不同点：
-    absolute的”根元素“是可以设置的，而fixed的”根元素“固定为浏览器窗口。当你滚动网页，fixed元素与浏览器窗口之间的距离是不变的。  
+    B：不同点：
+    float仍会占据位置，position会覆盖文档流中的其他元素。
 
-###介绍一下CSS的盒子模型？
+###介绍一下box-sizing属性？
 
-    1）有两种， IE 盒子模型、标准 W3C 盒子模型；IE的content部分包含了 border 和 pading;
-    
-    2）盒模型： 内容(content)、填充(padding)、边界(margin)、 边框(border).
+`box-sizing`属性主要用来控制元素的盒模型的解析模式。默认值是`content-box`。
+
+- `content-box`：让元素维持W3C的标准盒模型。元素的宽度/高度由border + padding + content的宽度/高度决定，设置width/height属性指的是content部分的宽/高
+
+- `border-box`：让元素维持IE传统盒模型（IE6以下版本和IE6~7的怪异模式）。设置width/height属性指的是border + padding + content
+
+
+标准浏览器下，按照W3C规范对盒模型解析，一旦修改了元素的边框或内距，就会影响元素的盒子尺寸，就不得不重新计算元素的盒子尺寸，从而影响整个页面的布局。    
 
 ![图片描述][1]
 
@@ -143,28 +164,18 @@ CSS 相关问题
     :checked        单选框或复选框被选中。
  
 
-###列出display的值，说明他们的作用。position的值， relative和absolute分别是相对于谁进行定位的？
+###position的值， relative和absolute分别是相对于谁进行定位的？
 
-    1.   
-      block 象块类型元素一样显示。
-      inline 缺省值。象行内元素类型一样显示。
-      inline-block 象行内元素一样显示，但其内容象块类型元素一样显示。
-      list-item 象块类型元素一样显示，并添加样式列表标记。
-    
-      2. 
-      *absolute 
-            生成绝对定位的元素，相对于 static 定位以外的第一个祖先元素进行定位。 
-    
-      *fixed （老IE不支持）
-            生成绝对定位的元素，相对于浏览器窗口进行定位。 
-    
-      *relative 
-            生成相对定位的元素，相对于其在普通流中的位置进行定位。 
-    
-      * static  默认值。没有定位，元素出现在正常的流中
-      *（忽略 top, bottom, left, right z-index 声明）。
-    
-      * inherit 规定从父元素继承 position 属性的值。
+    absolute 
+            生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。
+
+    fixed （老IE不支持）
+        生成绝对定位的元素，相对于浏览器窗口进行定位。 
+
+    relative 
+        生成相对定位的元素，相对于其在普通流中的位置进行定位。 
+
+    static  默认值。没有定位，元素出现在正常的流中
 
 ###CSS3有哪些新特性？
 
@@ -176,31 +187,17 @@ CSS 相关问题
     媒体查询，多栏布局
     border-image
       
-###为什么要初始化CSS样式。
+###XML和JSON的区别？
 
 
-        因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。
-    
-        当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。
-    
-    *最简单的初始化方法就是： * {padding: 0; margin: 0;} （不建议）
-    
-        淘宝的样式初始化： 
-        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
-        body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
-        h1, h2, h3, h4, h5, h6{ font-size:100%; }
-        address, cite, dfn, em, var { font-style:normal; }
-        code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
-        small{ font-size:12px; }
-        ul, ol { list-style:none; }
-        a { text-decoration:none; }
-        a:hover { text-decoration:underline; }
-        sup { vertical-align:text-top; }
-        sub{ vertical-align:text-bottom; }
-        legend { color:#000; }
-        fieldset, img { border:0; }
-        button, input, select, textarea { font-size:100%; }
-        table { border-collapse:collapse; border-spacing:0; } 
+    (1).数据体积方面。
+    JSON相对于XML来讲，数据的体积小，传递的速度更快些。
+    (2).数据交互方面。
+    JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。
+    (3).数据描述方面。
+    JSON对数据的描述性比XML较差。
+    (4).传输速度方面。
+    JSON的速度要远远快于XML。
 
 
 
@@ -233,6 +230,7 @@ html部分
     （3）、在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
     
     （4）、DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。   
+
 ###你知道多少种Doctype文档类型？
 
      该标签可声明三种 DTD 类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。
@@ -321,9 +319,11 @@ HTML与XHTML——二者有什么区别
 ###浮动元素引起的问题和解决办法？
 
     浮动元素引起的问题：
+
     （1）父元素的高度无法被撑开，影响与父元素同级的元素
-    （2）与浮动元素同级的非浮动元素会跟随其后
+    （2）与浮动元素同级的非浮动元素（内联元素）会跟随其后
     （3）若非第一个元素浮动，则该元素之前的元素也需要浮动，否则会影响页面显示的结构
+
 解决方法：
 使用`CSS`中的`clear:both`;属性来清除元素的浮动可解决2、3问题，对于问题1，添加如下样式，给父元素添加`clearfix`样式：
 
@@ -415,13 +415,13 @@ HTML与XHTML——二者有什么区别
 iframe的优缺点？
 ------------
 
-    1.<iframe>优点：
+    1.`<iframe>`优点：
     
         解决加载缓慢的第三方内容如图标和广告等的加载问题
         Security sandbox
         并行加载脚本
     
-    2.<iframe>的缺点：
+    2.`<iframe>`的缺点：
      
     
         *iframe会阻塞主页面的Onload事件；
@@ -436,10 +436,6 @@ iframe的优缺点？
     调用localstorge、cookies等本地存储方式
     
 
-webSocket如何兼容低浏览器？
-------------------
-
-    Adobe Flash Socket 、 ActiveX HTMLFile (IE) 、 基于 multipart 编码发送 XHR 、 基于长轮询的 XHR
     
 
 线程与进程的区别
@@ -527,12 +523,6 @@ new操作符具体干了什么呢?
     Base.call(obj); 
 
 
-JSON 的了解？
----------
-
-    JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。
-    它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
-    {'age':'12', 'name':'back'}
 
 js延迟加载的方式有哪些？
 -------------
@@ -588,13 +578,10 @@ JavaScript中的作用域与变量声明提升？
 -----
 ###你遇到过比较难的技术问题是？你是如何解决的？
 
-###常使用的库有哪些？常用的前端开发工具？开发过什么应用或组件？
 
 ###列举IE 与其他浏览器不一样的特性？
 
-###99%的网站都需要被重构是那本书上写的？
 
-    * 网站重构：应用web标准进行设计（第2版）
 
 ###什么叫优雅降级和渐进增强？
 
@@ -606,19 +593,14 @@ JavaScript中的作用域与变量声明提升？
 
 ###WEB应用从服务器主动推送Data到客户端有那些方式？
 
-###对Node的优点和缺点提出了自己的看法？
+Javascript数据推送
 
-    *（优点）因为Node是基于事件驱动和无阻塞的，所以非常适合处理并发请求，
-      因此构建在Node上的代理服务器相比其他技术实现（如Ruby）的服务器表现要好得多。
-      此外，与Node代理服务器交互的客户端代码是由javascript语言编写的，
-      因此客户端和服务器端都用同一种语言编写，这是非常美妙的事情。
-    
-    *（缺点）Node是一个相对新的开源项目，所以不太稳定，它总是一直在变，
-      而且缺少足够多的第三方库支持。看起来，就像是Ruby/Rails当年的样子。
+>Commet：基于HTTP长连接的服务器推送技术
+>基于WebSocket的推送方案
+>SSE（Server-Send Event）：服务器推送数据新方式
 
-###除了前端以外还了解什么其它技术么？你最最厉害的技能是什么？
 
-###你常用的开发工具是什么，为什么？
+
 
 ###对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？
 
@@ -640,17 +622,7 @@ JavaScript中的作用域与变量声明提升？
     
      针对服务器的优化、拥抱最新前端技术。
 
-###你在现在的团队处于什么样的角色，起到了什么明显的作用？
 
-###你认为怎样才是全端工程师（Full Stack developer）？
-
-###介绍一个你最得意的作品吧？
-###项目中遇到什么问题？如何解决？
-###你的优点是什么？缺点是什么？
-
-###如何管理前端团队?
-
-###最近在学什么？能谈谈你未来3，5年给自己的规划吗？
 
 你有哪些性能优化的方法？
 ------------
@@ -671,14 +643,7 @@ JavaScript中的作用域与变量声明提升？
     
       （7） 图片预加载，将样式表放在顶部，将脚本放在底部  加上时间戳。
 
-http状态码有那些？分别代表是什么意思？
----------------------
 
-    100-199 用于指定客户端应相应的某些动作。 
-    200-299 用于表示请求成功。 
-    300-399 用于已经移动的文件并且常被包含在定位头信息中指定新的地址信息。 
-    400-499 用于指出客户端的错误。400    1、语义有误，当前请求无法被服务器理解。401   当前请求需要用户验证 403  服务器已经理解请求，但是拒绝执行它。
-    500-599 用于支持服务器错误。 503 – 服务不可用
 
 详情：http://segmentfault.com/blog/trigkit4/1190000000691919
 
@@ -771,15 +736,45 @@ ajax过程
 
 前端安全问题？
 -------
+###sql注入原理
 
-        （XSS，sql注入，CSRF）
-    CSRF：是跨站请求伪造，很明显根据刚刚的解释，他的核心也就是请求伪造，通过伪造身份提交POST和GET请求来进行跨域的攻击。
-    
-    **完成CSRF需要两个步骤：**
-    
-    1.登陆受信任的网站A，在本地生成COOKIE
-    
-    2.在不登出A的情况下，或者本地COOKIE没有过期的情况下，访问危险网站B。
+就是通过把`SQL`命令插入到`Web`表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。
+
+总的来说有以下几点：
+
+    1.永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双"-"进行转换等。
+    2.永远不要使用动态拼装SQL，可以使用参数化的SQL或者直接使用存储过程进行数据查询存取。
+    3.永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。
+    4.不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息。
+
+###XSS原理及防范
+
+`Xss(cross-site scripting)`攻击指的是攻击者往Web页面里插入恶意`html`标签或者`javascript`代码。比如：攻击者在论坛中放一个
+看似安全的链接，骗取用户点击后，窃取cookie中的用户私密信息；或者攻击者在论坛中加一个恶意表单，
+当用户提交表单的时候，却把信息传送到攻击者的服务器中，而不是用户原本以为的信任站点。
+
+###XSS防范方法
+
+1.代码里对用户输入的地方和变量都需要仔细检查长度和对`”<”,”>”,”;”,”’”`等字符做过滤；其次任何内容写到页面之前都必须加以`encode`，避免不小心把`html tag` 弄出来。这一个层面做好，至少可以堵住超过一半的`XSS` 攻击。
+<br/>
+2.避免直接在`cookie` 中泄露用户隐私，例如`email`、密码等等。
+3.通过使cookie 和系统ip 绑定来降低`cookie` 泄露后的危险。这样攻击者得到的cookie 没有实际价值，不可能拿来重放。
+<br/>
+4.尽量采用POST 而非GET 提交表单
+
+###XSS与CSRF有什么区别吗？
+
+`XSS`是获取信息，不需要提前知道其他用户页面的代码和数据包。`CSRF`是代替用户完成指定的动作，需要知道其他用户页面的代码和数据包。
+
+要完成一次CSRF攻击，受害者必须依次完成两个步骤：
+
+　　1.登录受信任网站A，并在本地生成Cookie。
+　　2.在不登出A的情况下，访问危险网站B。
+
+###CSRF的防御
+
+1.服务端的CSRF方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。
+2.使用验证码
 
 ie各版本和chrome可以并行下载多少个资源
 -----------------------
@@ -864,6 +859,7 @@ GET和POST的区别，何时使用POST？
 
 哪些地方会出现css阻塞，哪些地方会出现js阻塞？
 -----------------------------------
+
 **js的阻塞特性：**所有浏览器在下载`JS`的时候，会阻止一切其他活动，比如其他资源的下载，内容的呈现等等。直到`JS`下载、解析、执行完毕后才开始继续`并行下载`其他资源并呈现内容。为了提高用户体验，新一代浏览器都支持并行下载`JS`，但是`JS`下载仍然会阻塞其它资源的下载（例如.图片，css文件等）。
 
 由于浏览器为了防止出现`JS`修改`DOM`树，需要重新构建`DOM`树的情况，所以就会阻塞其他的下载和呈现。
@@ -928,93 +924,7 @@ eval是做什么的？
     它的功能是把对应的字符串解析成JS代码并运行；
     应该避免使用eval，不安全，非常耗性能（2次，一次解析成js语句，一次执行）。
 
-写一个通用的事件侦听器函数?
---------------
-
-    // event(事件)工具集，来源：github.com/markyun
-        markyun.Event = {
-            // 页面加载完成后
-            readyEvent : function(fn) {
-                if (fn==null) {
-                    fn=document;
-                }
-                var oldonload = window.onload;
-                if (typeof window.onload != 'function') {
-                    window.onload = fn;
-                } else {
-                    window.onload = function() {
-                        oldonload();
-                        fn();
-                    };
-                }
-            },
-            // 视能力分别使用dom0||dom2||IE方式 来绑定事件
-            // 参数： 操作的元素,事件名称 ,事件处理程序
-            addEvent : function(element, type, handler) {
-                if (element.addEventListener) {
-                    //事件类型、需要执行的函数、是否捕捉
-                    element.addEventListener(type, handler, false);
-                } else if (element.attachEvent) {
-                    element.attachEvent('on' + type, function() {
-                        handler.call(element);
-                    });
-                } else {
-                    element['on' + type] = handler;
-                }
-            },
-            // 移除事件
-            removeEvent : function(element, type, handler) {
-                if (element.removeEnentListener) {
-                    element.removeEnentListener(type, handler, false);
-                } else if (element.datachEvent) {
-                    element.detachEvent('on' + type, handler);
-                } else {
-                    element['on' + type] = null;
-                }
-            }, 
-            // 阻止事件 (主要是事件冒泡，因为IE不支持事件捕获)
-            stopPropagation : function(ev) {
-                if (ev.stopPropagation) {
-                    ev.stopPropagation();
-                } else {
-                    ev.cancelBubble = true;
-                }
-            },
-            // 取消事件的默认行为
-            preventDefault : function(event) {
-                if (event.preventDefault) {
-                    event.preventDefault();
-                } else {
-                    event.returnValue = false;
-                }
-            },
-            // 获取事件目标
-            getTarget : function(event) {
-                return event.target || event.srcElement;
-            },
-            // 获取event对象的引用，取到事件的所有信息，确保随时能使用event；
-            getEvent : function(e) {
-                var ev = e || window.event;
-                if (!ev) {
-                    var c = this.getEvent.caller;
-                    while (c) {
-                        ev = c.arguments[0];
-                        if (ev && Event == ev.constructor) {
-                            break;
-                        }
-                        c = c.caller;
-                    }
-                }
-                return ev;
-            }
-        }; 
-
-Node.js的适用场景？
--------------
-
-    高并发、聊天、实时消息推送   
     
-
 
 JavaScript原型，原型链 ? 有什么特点？
 -------------------------
@@ -1022,20 +932,8 @@ JavaScript原型，原型链 ? 有什么特点？
     *  原型对象也是普通的对象，是对象一个自带隐式的 __proto__ 属性，原型也有可能有自己的原型，如果一个原型对象的原型不为null的话，我们就称之为原型链。
     *  原型链是由一些用来继承和共享属性的对象组成的（有限的）对象链。
 
-页面重构怎么操作？
----------
 
-    编写 CSS、让页面结构更合理化，提升用户体验，实现良好的页面效果和提升性能。
 
-WEB应用从服务器主动推送Data到客户端有那些方式？
----------------------------
-
-    html5 websoket
-        WebSocket通过Flash
-        XHR长时间连接
-        XHR Multipart Streaming
-        不可见的Iframe
-        <script>标签的长时间连接(可跨域)
 
 事件、IE与火狐的事件机制有什么区别？ 如何阻止冒泡？
 ---------------------------
@@ -1207,31 +1105,7 @@ HTTP状态码
     500 Internal Server Error  最常见的服务器端错误。
     503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
 
-cache-control
--------------
 
-网页的缓存是由HTTP消息头中的`“Cache-control”`来控制的，常见的取值有`private、no-cache、max-age、must-revalidate`等，默认为`private`。
-
-`Expires` 头部字段提供一个日期和时间，响应在该日期和时间后被认为失效。允许客户端在这个时间之前不去检查（发请求），等同`max-age`的效果。但是如果同时存在，则被`Cache-Control`的`max-age`覆盖。
-
-    Expires = "Expires" ":" HTTP-date
-
-例如
-
-    Expires: Thu, 01 Dec 1994 16:00:00 GMT （必须是GMT格式）
-
-如果把它设置为`-1`，则表示立即过期
-
-`Expires`和`max-age`都可以用来指定文档的过期时间，但是二者有一些细微差别
-
-    1.Expires在HTTP/1.0中已经定义，Cache-Control:max-age在HTTP/1.1中才有定义，为了向下兼容，仅使用max-age不够；
-    2.Expires指定一个绝对的过期时间(GMT格式),这么做会导致至少2个问题：1)客户端和服务器时间不同步导致Expires的配置出现问题。 2）很容易在配置后忘记具体的过期时间，导致过期来临出现浪涌现象；
-    
-    3.max-age 指定的是从文档被访问后的存活时间，这个时间是个相对值(比如:3600s),相对的是文档第一次被请求时服务器记录的Request_time(请求时间)
-    
-    4.Expires指定的时间可以是相对文件的最后访问时间(Atime)或者修改时间(MTime),而max-age相对对的是文档的请求时间(Atime)
-    
-    如果值为no-cache,那么每次都会访问服务器。如果值为max-age,则在过期之前不会重复访问服务器。
 
 js操作获取和设置cookie
 ---------------
@@ -1276,8 +1150,109 @@ js操作获取和设置cookie
     }
 
  
+###说说TCP传输的三次握手策略
+
+	为了准确无误地把数据送达目标处，TCP协议采用了三次握手策略。用TCP协议把数据包送出去后，TCP不会对传送  后的情况置之不理，它一定会向对方确认是否成功送达。握手过程中使用了TCP的标志：SYN和ACK。
+	发送端首先发送一个带SYN标志的数据包给对方。接收端收到后，回传一个带有SYN/ACK标志的数据包以示传达确认信息。最后，发送端再回传一个带ACK标志的数据包，代表“握手”结束
+	若在握手过程中某个阶段莫名中断，TCP协议会再次以相同的顺序发送相同的数据包。
 
 
+###说说你对Promise的理解
+
+依照 `Promise/A+` 的定义，`Promise` 有四种状态：
+
+	pending: 初始状态, 非 fulfilled 或 rejected.
+	fulfilled: 成功的操作.
+	rejected: 失败的操作.
+	settled: Promise已被fulfilled或rejected，且不是pending
+
+另外， `fulfilled` 与 `rejected` 一起合称 `settled`。
+
+`Promise` 对象用来进行延迟(deferred) 和异步(asynchronous ) 计算。
+
+>Promise 的构造函数
+
+构造一个 `Promise`，最基本的用法如下：
+
+	var promise = new Promise(function(resolve, reject) {
+	    if (...) {  // succeed
+	        resolve(result);
+	    } else {   // fails
+	        reject(Error(errMessage));
+	    }
+	});
+
+`Promise` 实例拥有 `then` 方法（具有 `then` 方法的对象，通常被称为 `thenable`）。它的使用方法如下：
+
+	promise.then(onFulfilled, onRejected)
+
+接收两个函数作为参数，一个在 `fulfilled` 的时候被调用，一个在 `rejected` 的时候被调用，接收参数就是 `future，onFulfilled` 对应 `resolve`, `onRejected` 对应 `reject`。
+
+
+##Javascript垃圾回收方法
+
+###标记清除（mark and sweep）
+
+
+这是`JavaScript`最常见的垃圾回收方式，当变量进入执行环境的时候，比如函数中声明一个变量，垃圾回收器将其标记为“进入环境”，当变量离开环境的时候（函数执行结束）将其标记为“离开环境”。
+
+垃圾回收器会在运行的时候给存储在内存中的所有变量加上标记，然后去掉环境中的变量以及被环境中变量所引用的变量（闭包），在这些完成之后仍存在标记的就是要删除的变量了
+
+###引用计数(reference counting)
+
+在低版本`IE`中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加1，如果该变量的值变成了另外一个，则这个值得引用次数减1，当这个值的引用次数变为0的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为0的值占用的空间。
+
+在IE中虽然`JavaScript`对象通过标记清除的方式进行垃圾回收，但BOM与DOM对象却是通过引用计数回收垃圾的，也就是说只要涉及BOM及DOM就会出现循环引用问题。
+
+###谈谈性能优化问题
+
+代码层面：避免使用css表达式，避免使用高级选择器，通配选择器。
+缓存利用：缓存Ajax，使用CDN，使用外部js和css文件以便缓存，添加Expires头，服务端配置Etag，减少DNS查找等
+请求数量：合并样式和脚本，使用css图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。
+请求带宽：压缩文件，开启GZIP，
+
+###移动端性能优化
+
+>尽量使用css3动画，开启硬件加速。适当使用touch事件代替click事件。避免使用css3渐变阴影效果。
+
+##什么是Etag？
+
+浏览器下载组件的时候，会将它们存储到浏览器缓存中。如果需要再次获取相同的组件，浏览器将检查组件的缓存时间，
+假如已经过期，那么浏览器将发送一个条件GET请求到服务器，服务器判断缓存还有效，则发送一个304响应，
+告诉浏览器可以重用缓存组件。
+
+那么服务器是根据什么判断缓存是否还有效呢?答案有两种方式，一种是前面提到的ETag，另一种是根据`Last-Modified`
+
+###Expires和Cache-Control
+
+`Expires`要求客户端和服务端的时钟严格同步。HTTP1.1引入`Cache-Control`来克服Expires头的限制。如果max-age和Expires同时出现，则max-age有更高的优先级。
+
+    Cache-Control: no-cache, private, max-age=0
+    ETag: abcde
+    Expires: Thu, 15 Apr 2014 20:00:00 GMT
+    Pragma: private
+    Last-Modified: $now // RFC1123 format
+
+###栈和队列的区别?
+
+    栈的插入和删除操作都是在一端进行的，而队列的操作却是在两端进行的。
+    队列先进先出，栈先进后出。
+    栈只允许在表尾一端进行插入和删除，而队列只允许在表尾一端进行插入，在表头一端进行删除 
+
+###栈和堆的区别？
+
+    栈区（stack）—   由编译器自动分配释放   ，存放函数的参数值，局部变量的值等。
+    堆区（heap）   —   一般由程序员分配释放，   若程序员不释放，程序结束时可能由OS回收。
+    堆（数据结构）：堆可以被看成是一棵树，如：堆排序；
+    栈（数据结构）：一种先进后出的数据结构。 
+
+###关于Http 2.0 你知道多少？
+
+`HTTP/2`引入了“服务端推（serverpush）”的概念，它允许服务端在客户端需要数据之前就主动地将数据发送到客户端缓存中，从而提高性能。
+`HTTP/2`提供更多的加密支持
+`HTTP/2`使用多路技术，允许多个消息在一个连接上同时交差。 
+它增加了头压缩（header compression），因此即使非常小的请求，其请求和响应的`header`都只会占用很小比例的带宽。
+  
   [1]: /img/bVldFY
   [2]: http://segmentfault.com/blog/trigkit4/1190000000718840
   [3]: http://segmentfault.com/blog/trigkit4/1190000000660786#articleHeader15
