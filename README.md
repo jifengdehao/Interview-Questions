@@ -121,40 +121,37 @@ CSS 相关问题
 
 标准浏览器下，按照W3C规范对盒模型解析，一旦修改了元素的边框或内距，就会影响元素的盒子尺寸，就不得不重新计算元素的盒子尺寸，从而影响整个页面的布局。    
 
-![图片描述][1]
 
 ###CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？
 
  
-
-       *   1.id选择器（ # myid）
-            2.类选择器（.myclassname）
-            3.标签选择器（div, h1, p）
-            4.相邻选择器（h1 + p）
-            5.子选择器（ul > li）
-            6.后代选择器（li a）
-            7.通配符选择器（ * ）
-            8.属性选择器（a[rel = "external"]）
-            9.伪类选择器（a: hover, li:nth-child）
-        
-        *   可继承的样式： font-size font-family color, text-indent;
-        
-        *   不可继承的样式：border padding margin width height ;
-        
-        *   优先级就近原则，同权重情况下样式定义最近者为准;
-        
-        *   载入样式以最后载入的定位为准;
+  1.id选择器（ # myid）
+  2.类选择器（.myclassname）
+  3.标签选择器（div, h1, p）
+  4.相邻选择器（h1 + p）
+  5.子选择器（ul > li）
+  6.后代选择器（li a）
+  7.通配符选择器（ * ）
+  8.属性选择器（a[rel = "external"]）
+  9.伪类选择器（a: hover, li:nth-child）
+          
+  *   可继承的样式： font-size font-family color, text-indent;
+          
+  *   不可继承的样式：border padding margin width height ;
+          
+  *   优先级就近原则，同权重情况下样式定义最近者为准;
+          
+  *   载入样式以最后载入的定位为准;
+      
+>优先级为:
+      
+      
+  !important >  id > class > tag  
+      
+  important 比 内联优先级高,但内联比 id 要高
     
-    优先级为:
-    
-    
-       !important >  id > class > tag  
-    
-       important 比 内联优先级高,但内联比 id 要高
-    
-    CSS3新增伪类举例：
-    
-    
+>CSS3新增伪类举例：
+       
     p:first-of-type 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
     p:last-of-type  选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
     p:only-of-type  选择属于其父元素唯一的 <p> 元素的每个 <p> 元素。
@@ -596,7 +593,9 @@ JavaScript中的作用域与变量声明提升？
 Javascript数据推送
 
 >Commet：基于HTTP长连接的服务器推送技术
+
 >基于WebSocket的推送方案
+
 >SSE（Server-Send Event）：服务器推送数据新方式
 
 
@@ -1213,7 +1212,8 @@ js操作获取和设置cookie
 
 ###移动端性能优化
 
->尽量使用css3动画，开启硬件加速。适当使用touch事件代替click事件。避免使用css3渐变阴影效果。
+>尽量使用`css3`动画，开启硬件加速。适当使用`touch`事件代替`click`事件。避免使用`css3`渐变阴影效果。
+>尽可能少的使用`box-shadow`与`gradients`。`box-shadow`与`gradients`往往都是页面的性能杀手
 
 ##什么是Etag？
 
