@@ -124,16 +124,16 @@ CSS 相关问题
 
 ###CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？
 
- 
-  1.id选择器（ # myid）
-  2.类选择器（.myclassname）
-  3.标签选择器（div, h1, p）
-  4.相邻选择器（h1 + p）
-  5.子选择器（ul > li）
-  6.后代选择器（li a）
-  7.通配符选择器（ * ）
-  8.属性选择器（a[rel = "external"]）
-  9.伪类选择器（a: hover, li:nth-child）
+   
+    1.id选择器（ # myid）
+    2.类选择器（.myclassname）
+    3.标签选择器（div, h1, p）
+    4.相邻选择器（h1 + p）
+    5.子选择器（ul > li）
+    6.后代选择器（li a）
+    7.通配符选择器（ * ）
+    8.属性选择器（a[rel = "external"]）
+    9.伪类选择器（a: hover, li:nth-child）
           
   *   可继承的样式： font-size font-family color, text-indent;
           
@@ -146,9 +146,9 @@ CSS 相关问题
 >优先级为:
       
       
-  !important >  id > class > tag  
+    !important >  id > class > tag  
       
-  important 比 内联优先级高,但内联比 id 要高
+    important 比 内联优先级高,但内联比 id 要高
     
 >CSS3新增伪类举例：
        
