@@ -337,7 +337,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 ###worker主线程:
 
 
-
+```js
     1.通过 worker = new Worker( url ) 加载一个JS文件来创建一个worker，同时返回一个worker实例。
 
     2.通过worker.postMessage( data ) 方法来向worker发送数据。
@@ -345,6 +345,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
     3.绑定worker.onmessage方法来接收worker发送过来的数据。
 
     4.可以使用 worker.terminate() 来终止一个worker的执行。
+```
 
 `WebSocket`是`Web`应用程序的传输协议，它提供了双向的，按序到达的数据流。他是一个`HTML5`协议，`WebSocket`的连接是持久的，他通过在客户端和服务器之间保持双工连接，服务器的更新可以被及时推送给客户端，而不需要客户端以一定时间间隔去轮询。
 
@@ -391,13 +392,13 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 >CMD模块方式
 
 
-
+```js
     define(function(require, exports, module) {
 
       // 模块代码
 
     });
-
+```
 
 
 
@@ -515,7 +516,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 `Expires`要求客户端和服务端的时钟严格同步。`HTTP1.1`引入`Cache-Control`来克服Expires头的限制。如果max-age和Expires同时出现，则max-age有更高的优先级。
 
 
-
+```js
     Cache-Control: no-cache, private, max-age=0
 
     ETag: abcde
@@ -525,7 +526,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
     Pragma: private
 
     Last-Modified: $now // RFC1123 format
-
+```
 
 
 ###ETag应用:
@@ -602,7 +603,7 @@ Etag 主要为了解决 `Last-Modified` 无法解决的一些问题。
 　　（3）利用递归进行下次比较
 
 
-
+```js
     <script type="text/javascript">
 
         function quickSort(arr){
@@ -631,7 +632,7 @@ Etag 主要为了解决 `Last-Modified` 无法解决的一些问题。
         alert(quickSort([32,45,37,16,2,87]));//弹出“2,16,32,37,45,87”
 
     </script>
-
+```
 
 
 ###你觉得jQuery或zepto源码有哪些写的好的地方
@@ -643,7 +644,7 @@ Etag 主要为了解决 `Last-Modified` 无法解决的一些问题。
 
 
 
-
+```js
     (function( window, undefined ) {
 
          //用一个函数域包起来，就是所谓的沙箱
@@ -659,7 +660,7 @@ Etag 主要为了解决 `Last-Modified` 无法解决的一些问题。
         window.jQuery = window.$ = jQuery;
 
     })( window );
-
+```
 
 
 jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了缩短名称，又赋值给了`jquery.fn`，这是很形象的写法。
@@ -672,15 +673,13 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 
 
-jquery实现的链式调用可以节约代码，所返回的都是同一个对象，可以提高代码效率。
+`jquery`实现的链式调用可以节约代码，所返回的都是同一个对象，可以提高代码效率。
 
 
 
 ###ES6的了解
 
 新增模板字符串（为JavaScript提供了简单的字符串插值功能）、箭头函数（操作符左边为输入的参数，而右边则是进行的操作以及返回的值`Inputs=>outputs`。）、`for-of`（用来遍历数据—例如数组中的值。）`arguments`对象可被不定参数和默认参数完美代替。`ES6`将`promise`对象纳入规范，提供了原生的`Promise`对象。增加了`let`和`const`命令，用来声明变量。增加了块级作用域。let命令实际上就增加了块级作用域。ES6规定，`var`命令和`function`命令声明的全局变量，属于全局对象的属性；`let`命令、`const`命令、`class`命令声明的全局变量，不属于全局对象的属性。。还有就是引入`module`模块的概念
-
-
 
 
 
@@ -691,9 +690,7 @@ jquery实现的链式调用可以节约代码，所返回的都是同一个对�
 >原型链继承的缺点
 
 
-
     一是字面量重写原型会中断关系，使用引用类型的原型，并且子类型还无法给超类型传递参数。
-
 
 
 >借用构造函数（类式继承）
@@ -728,8 +725,6 @@ jquery实现的链式调用可以节约代码，所返回的都是同一个对�
 
 
 
-
-
 <br>
 
 >defer并行加载js文件，会按照页面上script标签的顺序执行
@@ -754,10 +749,6 @@ jquery实现的链式调用可以节约代码，所返回的都是同一个对�
 <br>
 
 `AngularJS`的`directive`，你输入特定数据，他就能输出相应UI视图。是一个比较完善的前端MVW框架，包含模板，数据双向绑定，路由，模块化，服务，依赖注入等所有功能，模板功能强大丰富，并且是声明式的，自带了丰富的 Angular 指令。
-
-
-
-<br>
 
 
 
@@ -991,6 +982,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
 >CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3新增伪类有那些？
 
+```css
     1.id选择器（ # myid）
 
     2.类选择器（.myclassname）
@@ -1008,7 +1000,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
     8.属性选择器（a[rel = "external"]）
 
     9.伪类选择器（a: hover, li:nth-child）
-
+```
 
 
 **优先级为:**
@@ -1022,6 +1014,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
 >CSS3新增伪类举例：
 
+```css
     p:first-of-type 选择属于其父元素的首个 <p> 元素的每个 <p> 元素。
 
     p:last-of-type  选择属于其父元素的最后 <p> 元素的每个 <p> 元素。
@@ -1035,7 +1028,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
     :enabled  :disabled 控制表单控件的禁用状态。
 
     :checked        单选框或复选框被选中。
-
+```
 
 >CSS3有哪些新特性？
 
@@ -1224,16 +1217,16 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
 使用`CSS`中的`clear:both`;属性来清除元素的浮动可解决2、3问题，对于问题1，添加如下样式，给父元素添加`clearfix`样式：
 
-
+```css
     .clearfix:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
 
     .clearfix{display: inline-block;} /* for IE/Mac */
-
+```
 
 **清除浮动的几种方法：**
 
 
-
+```css
     1，额外标签法，<div style="clear:both;"></div>（缺点：不过这个办法会增加额外的标签使HTML结构看起来不够简洁。）
 
     2，使用after伪类
@@ -1253,11 +1246,10 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
         }
 
 
-
     3,浮动外部元素
 
-    4,设置`overflow`为`hidden`或者auto
-
+    4,设置overflow为hidden或者auto
+```
 
 
 
@@ -1359,21 +1351,14 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 ###如何实现浏览器内多个标签页之间的通信?
 
 
-
-
-
+```js
     调用localstorge、cookies等本地存储方式
-
-
-
-
-
-
+```
 
 ###什么是 FOUC（无样式内容闪烁）？你如何来避免 FOUC？
 
 
-
+```html
      FOUC - Flash Of Unstyled Content 文档样式闪烁
 
      <style type="text/css" media="all">@import "../fouc.css";</style>
@@ -1381,7 +1366,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
     而引用CSS文件的@import就是造成这个问题的罪魁祸首。IE会先加载整个HTML文档的DOM，然后再去导入外部的CSS文件，因此，在页面DOM加载完成到CSS导入完成中间会有一段时间页面上的内容是没有样式的，这段时间的长短跟网速，电脑速度都有关系。
 
      解决方法简单的出奇，只要在<head>之间加入一个<link>或者<script>元素就可以了。
-
+```
 
 
 ###null和undefined的区别？
@@ -1625,8 +1610,7 @@ Javascript数据推送
 
 ###ajax过程
 
-
-
+```js
     (1)创建`XMLHttpRequest`对象,也就是创建一个异步调用对象.
 
     (2)创建一个新的`HTTP`请求,并指定该`HTTP`请求的方法、`URL`及验证信息.
@@ -1653,7 +1637,7 @@ Javascript数据推送
         }
 
     }
-
+```
 
 
 
@@ -1677,33 +1661,24 @@ Javascript数据推送
 
 
 
-
-
 ###ie各版本和chrome可以并行下载多少个资源
 
 
-
-
     IE6 两个并发，iE7升级之后的6个并发，之后版本也是6个
-
-
     Firefox，chrome也是6个
 
 
 
-Flash、Ajax各自的优缺点，在使用中如何取舍？
-
---------------------------
+###`Flash`、`Ajax`各自的优缺点，在使用中如何取舍？
 
 
 
-    1、Flash ajax对比
 
-    Flash适合处理多媒体、矢量图形、访问机器；对CSS、处理文本上不足，不容易被搜索。
+- `Flash`适合处理多媒体、矢量图形、访问机器；对`CSS`、处理文本上不足，不容易被搜索。
 
-    Ajax对CSS、文本支持很好，支持搜索；多媒体、矢量图形、机器访问不足。
+-` Ajax`对`CSS`、文本支持很好，支持搜索；多媒体、矢量图形、机器访问不足。
 
-    共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作DOM
+- 共同点：与服务器的无刷新传递消息、用户离线和在线状态、操作DOM
 
 
 
@@ -1812,7 +1787,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
 
 ###js对象的深度克隆
 
-
+```js
       function clone(Obj) {
 
             var buf;
@@ -1850,7 +1825,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
             }
 
         }
-
+```
 
 
 ###网站重构的理解？
@@ -1871,7 +1846,6 @@ open('GET','demo.php?rand=+Math.random()',true);//
     针对于SEO进行优化
 
     深层次的网站重构应该考虑的方面
-
 
 
     减少代码间的耦合
@@ -1907,7 +1881,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
 
 以下是数组去重的三种方法：
 
-
+```js
     Array.prototype.unique1 = function () {
 
       var n = []; //一个新的临时数组
@@ -1979,14 +1953,14 @@ open('GET','demo.php?rand=+Math.random()',true);//
     	return n;
 
     }
-
+```
 
 
 
 ###HTTP状态码
 
 
-```
+```html
 
     100  Continue  继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息
 
@@ -2018,11 +1992,6 @@ open('GET','demo.php?rand=+Math.random()',true);//
     503 Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）。
 
 ```
-
-
-
-
-
 
 
 ###说说你对Promise的理解
@@ -2058,7 +2027,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
 构造一个 `Promise`，最基本的用法如下：
 
 
-
+```js
 	var promise = new Promise(function(resolve, reject) {
 
 	    if (...) {  // succeed
@@ -2072,27 +2041,20 @@ open('GET','demo.php?rand=+Math.random()',true);//
 	    }
 
 	});
-
+```
 
 
 `Promise` 实例拥有 `then` 方法（具有 `then` 方法的对象，通常被称为 `thenable`）。它的使用方法如下：
 
-
-
-	promise.then(onFulfilled, onRejected)
-
-
+```js
+promise.then(onFulfilled, onRejected)
+```
 
 接收两个函数作为参数，一个在 `fulfilled` 的时候被调用，一个在 `rejected` 的时候被调用，接收参数就是 `future，onFulfilled` 对应 `resolve`, `onRejected` 对应 `reject`。
 
 
 
-
-
-
-
 ###说说你对前端架构师的理解
-
 
 
 负责前端团队的管理及与其他团队的协调工作，提升团队成员能力和整体效率；
@@ -2102,12 +2064,10 @@ open('GET','demo.php?rand=+Math.random()',true);//
 
 
 
-
-
 ###实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制
 
 
-
+```js
     Object.prototype.clone = function(){
 
             var o = this.constructor === Array ? [] : {};
@@ -2121,7 +2081,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
             return o;
 
     }
-
+```
 
 ###说说严格模式的限制
 
@@ -2166,13 +2126,13 @@ open('GET','demo.php?rand=+Math.random()',true);//
 设立"严格模式"的目的，主要有以下几个：
 
 
-    - 消除`Javascript`语法的一些不合理、不严谨之处，减少一些怪异行为;
+- 消除`Javascript`语法的一些不合理、不严谨之处，减少一些怪异行为;
 
-    - 消除代码运行的一些不安全之处，保证代码运行的安全；
+- 消除代码运行的一些不安全之处，保证代码运行的安全；
 
-    - 提高编译器效率，增加运行速度；
+- 提高编译器效率，增加运行速度；
 
-    - 为未来新版本的`Javascript`做好铺垫。
+- 为未来新版本的`Javascript`做好铺垫。
 
 
 
@@ -2195,36 +2155,35 @@ open('GET','demo.php?rand=+Math.random()',true);//
 >1.将时间设为当前时间往前一点。
 
 
+```js
+var date = new Date();
 
-    var date = new Date();
-
-    date.setDate(date.getDate() - 1);//真正的删除
-
+date.setDate(date.getDate() - 1);//真正的删除
+```
 
 
 `setDate() `方法用于设置一个月的某一天。
 
 >2.expires的设置
 
-
-
+```js
     document.cookie = 'user='+ encodeURIComponent('name')  + ';expires = ' + new Date(0)
-
+```
 
 
 ###`<strong>`，`<em>`和`<b>`，`<i>`标签
 
 
+```html
+    <strong> 标签和 <em> 标签一样，用于强调文本，但它强调的程度更强一些。
 
-    `<strong>` 标签和 `<em>` 标签一样，用于强调文本，但它强调的程度更强一些。
+    em 是 斜体强调标签，更强烈强调，表示内容的强调点。相当于html元素中的 <i>...</i>;
 
-    `em` 是 斜体强调标签，更强烈强调，表示内容的强调点。相当于html元素中的 `<i>...</i>`;
-
-    `< b > < i >` 是视觉要素，分别表示无意义的加粗，无意义的斜体。
+    < b > < i >是视觉要素，分别表示无意义的加粗，无意义的斜体。
 
     em 和 strong 是表达要素(phrase elements)。
 
-
+```
 
 
 ###说说你对AMD和Commonjs的理解
@@ -2252,7 +2211,8 @@ open('GET','demo.php?rand=+Math.random()',true);//
 
 假设：一个英文字符占用一个字节，一个中文字符占用两个字节
 
-    function GetBytes(str){
+```js
+ function GetBytes(str){
 
         var len = str.length;
 
@@ -2268,18 +2228,18 @@ open('GET','demo.php?rand=+Math.random()',true);//
 
     }
 
-    alert(GetBytes("你好,as"));
-
+alert(GetBytes("你好,as"));
+```
 
 
 ### git fetch和git pull的区别
 
 
+```js
+git pull：相当于是从远程获取最新版本并merge到本地
 
-     git pull：相当于是从远程获取最新版本并merge到本地
-
-     git fetch：相当于是从远程获取最新版本到本地，不会自动merge
-
+git fetch：相当于是从远程获取最新版本到本地，不会自动merge
+```
 
 
 
@@ -2288,47 +2248,47 @@ open('GET','demo.php?rand=+Math.random()',true);//
 父元素和子元素同时左浮动，然后父元素相对左移动50%，再然后子元素相对右移动50%，或者子元素相对左移动-50%也就可以了。
 
 
-```
-    <style type="text/css">
+```css
 
-            .p{
+<style type="text/css">
 
-                position:relative;
+    .p{
 
-                left:50%;
+        position:relative;
 
-                float:left;
+        left:50%;
 
-            }
+        float:left;
 
-            .c{
+    }
 
-                position:relative;
+    .c{
 
-                float:left;
+        position:relative;
 
-                right:50%;
+        float:left;
 
-            }
+        right:50%;
 
-    </style>
+    }
+
+</style>
 
 
+<div class="p">
 
-    <div class="p">
+    <h1 class="c">Test Float Element Center</h1>
 
-        <h1 class="c">Test Float Element Center</h1>
-
-    </div>
+</div>
 
 ```
 
 ###css实现水平垂直居中
 
 
+```css
 
-
-    <style type="text/css">
+<style type="text/css">
 
     .align-center{
 
@@ -2362,6 +2322,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
 
     }
 
+```
 
 
 ###css实现三栏布局，中间自适应
@@ -2371,7 +2332,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
 >方法一：自身浮动法。左栏左浮动，右栏右浮动。
 
 
-```
+```css
 
     .left , .right{
 
@@ -2413,7 +2374,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
 
 
 
-```
+```css
 
     <style>
 
@@ -2481,65 +2442,64 @@ open('GET','demo.php?rand=+Math.random()',true);//
 
 >方法三：绝对定位法。左右两栏采用绝对定位，分别固定于页面的左右两侧，中间的主体栏用左右margin值撑开距离。
 
-```
+```css
 
-            body{
+<style>
+    body{
 
-                margin: 0;
+        margin: 0;
 
-                padding: 0;
+        padding: 0;
 
-            }
+    }
 
-            .left , .right{
+    .left , .right{
 
-                top: 0;
+        top: 0;
 
-                height: 300px;
+        height: 300px;
 
-                width: 200px;
+        width: 200px;
 
-                position: absolute;
+        position: absolute;
 
-            }
+    }
 
-            .right{
+    .right{
 
-                right: 0;
+        right: 0;
 
-                background-color: red;
+        background-color: red;
 
-            }
+    }
 
-            .left{
+    .left{
 
-                left: 0;
+        left: 0;
 
-                background-color: #080808;
+        background-color: #080808;
 
-            }
+    }
 
-            .middle{
+    .middle{
 
-                margin: 0 200px;
+        margin: 0 200px;
 
-                height: 300px;
+        height: 300px;
 
-                background-color: blue;
+        background-color: blue;
 
-            }
-
-        </style>
-
+    }
+</style>
 
 
-    <div class="left">left</div>
+<div class="left">left</div>
 
-    <!--这种方法没有严格限定中间这栏放置何处-->
+<!--这种方法没有严格限定中间这栏放置何处-->
 
-    <div class="middle">middle</div>
+<div class="middle">middle</div>
 
-    <div class="right">right</div>
+<div class="right">right</div>
 
 ```
 
@@ -2553,7 +2513,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
 参考答案：
 
 
-```
+```js
 
     1) 单例：　任意对象都是单例，无须特别处理
 
@@ -2714,7 +2674,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
 
 >每一层的作用如下：
 
-
+```js
 
 	物理层：通过媒介传输比特,确定机械及电气规范（比特Bit）
 	数据链路层：将比特组装成帧和点到点的传递（帧Frame）
@@ -2723,7 +2683,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
 	会话层：建立、管理和终止会话（会话协议数据单元SPDU）
 	表示层：对数据进行翻译、加密和压缩（表示协议数据单元PPDU）
 	应用层：允许访问OSI环境的手段（应用协议数据单元APDU）
-
+```
 
 >各种协议
 
