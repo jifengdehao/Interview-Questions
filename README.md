@@ -1,6 +1,6 @@
  
 
-本文旨在加深对前端知识点的理解，资料来源于网络，由本人（博客：http://segmentfault.com/u/trigkit4）收集整理。
+本文旨在加深对前端知识点的理解，资料来源于网络，由本人(博客：http://segmentfault.com/u/trigkit4) 收集整理。
 
 
 
@@ -89,11 +89,11 @@
 
             createJs('jsonp.js');
 
-    //        box({
+              box({
 
-    //        'name': 'test'
+               'name': 'test'
 
-    //        });
+            });
 
     
 
@@ -125,10 +125,7 @@
 
 
 
-
-
 `window`对象有个`name`属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个`window.name`的，每个页面对`window.name`都有读写的权限，`window.name`是持久存在一个窗口载入过的所有页面中的
-
 
 
 
@@ -183,9 +180,9 @@
 
 
 
-    1.`code splitting`（可以自动完成）
+    1.code splitting（可以自动完成）
 
-    2.`loader `可以处理各种类型的静态文件，并且支持串联操作
+    2.loader 可以处理各种类型的静态文件，并且支持串联操作
 
 ###webpack的优势：
 
@@ -205,7 +202,7 @@
 `webpack`具有`requireJs`和`browserify`的功能，但仍有很多自己的新特性：
 
 
-
+```
 1. 对 CommonJS 、 AMD 、ES6的语法做了兼容
 
 2. 对js、css、图片等资源文件都支持打包
@@ -221,7 +218,7 @@
 7. 具有强大的Plugin接口，大多是内部插件，使用起来比较灵活
 
 8.webpack 使用异步 IO 并具有多级缓存。这使得 webpack 很快且在增量编译上更加快
-
+```
 
 ###说说TCP传输的三次握手四次挥手策略
 
@@ -258,11 +255,7 @@ UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议�
 作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到window对象即被终止，作用域链向下访问变量是不被允许的。
 
 
-
-
-
 <br>
-
 
 
 ###onmousemove和onmouseover的区别：
@@ -272,8 +265,6 @@ UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议�
     按钮上：不区分鼠标按钮。
 
     动作上：onmouseover只在刚进入区域时触发，onmousemove除了刚进入区域触发外，在区域内移动鼠标，也会触发
-
-
 
 
 ###创建ajax过程
