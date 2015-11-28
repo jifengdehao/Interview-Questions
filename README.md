@@ -175,7 +175,7 @@
 
 
 
-`webpack`是加强版的`Browserrify`。
+`webpack`是加强版的`Browserify`。
 
 
 
