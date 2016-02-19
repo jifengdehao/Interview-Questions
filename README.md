@@ -738,7 +738,7 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 
 
-###如何评价angulajs和backbonejs
+###如何评价AngularJS和BackboneJS
 
 `backbone`具有依赖性，依赖`underscore.js`。`Backbone + Underscore + jQuery(or Zepto)` 就比一个`AngularJS` 多出了2 次HTTP请求.
 
