@@ -4,7 +4,7 @@
 
 
 
-###一些开放性题目
+##一些开放性题目
 
     1.自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。
 
@@ -18,7 +18,7 @@
 
 <br>
 
-###position的值， relative和absolute分别是相对于谁进行定位的？
+##position的值， relative和absolute分别是相对于谁进行定位的？
 
 
 - `absolute` :生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。
@@ -37,7 +37,7 @@
 
 
 
-###JSONP：
+####JSONP：
 
 原理是：动态插入`script`标签，通过`script`标签引入一个`js`文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的`json`数据作为参数传入。
 
@@ -55,31 +55,30 @@
 
 
 ```js
-        <script>
+<script>
 
-            function createJs(sUrl){
+    function createJs(sUrl){
 
-                var oScript = document.createElement('script');
-                oScript.type = 'text/javascript';
-                oScript.src = sUrl;
-                document.getElementsByTagName('head')[0].appendChild(oScript);
-            }
+        var oScript = document.createElement('script');
+        oScript.type = 'text/javascript';
+        oScript.src = sUrl;
+        document.getElementsByTagName('head')[0].appendChild(oScript);
+    }
 
-            createJs('jsonp.js');
+    createJs('jsonp.js');
 
-            box({
-               'name': 'test'
-            });
+    box({
+       'name': 'test'
+    });
 
-            function box(json){
-                alert(json.name);
-            }
-
-        </script>
+    function box(json){
+        alert(json.name);
+    }
+</script>
 ```
 
 
-###CORS
+####CORS
 
 
 
@@ -87,7 +86,7 @@
 
 
 
-###通过修改document.domain来跨子域
+####通过修改document.domain来跨子域
 
 将子域和主域的`document.domain`设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用`document.domain`进行跨域
 
@@ -104,7 +103,7 @@
 
 
 
-###使用HTML5中新引进的window.postMessage方法来跨域传送数据
+####使用HTML5中新引进的`window.postMessage`方法来跨域传送数据
 
 
 
@@ -114,29 +113,29 @@
 
 
 
-###XML和JSON的区别？
+## `XML`和`JSON`的区别？
 
 ```html
-    (1).数据体积方面。
+(1).数据体积方面。
 
-    JSON相对于XML来讲，数据的体积小，传递的速度更快些。
+JSON相对于XML来讲，数据的体积小，传递的速度更快些。
 
-    (2).数据交互方面。
+(2).数据交互方面。
 
-    JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。
+JSON与JavaScript的交互更加方便，更容易解析处理，更好的数据交互。
 
-    (3).数据描述方面。
+(3).数据描述方面。
 
-    JSON对数据的描述性比XML较差。
+JSON对数据的描述性比XML较差。
 
-    (4).传输速度方面。
+(4).传输速度方面。
 
-    JSON的速度要远远快于XML。
+JSON的速度要远远快于XML。
 ```
 
 
 
-###谈谈你会webpack的看法
+##谈谈你会webpack的看法
 
 
 
@@ -189,7 +188,7 @@
 8.webpack 使用异步 IO 并具有多级缓存。这使得 webpack 很快且在增量编译上更加快
 ```
 
-###说说TCP传输的三次握手四次挥手策略
+## 说说TCP传输的三次握手四次挥手策略
 
  为了准确无误地把数据送达目标处，`TCP`协议采用了三次握手策略。用TCP协议把数据包送出去后，`TCP`不会对传送    后的情况置之不理，它一定会向对方确认是否成功送达。握手过程中使用了TCP的标志：`SYN`和`ACK`。
 
@@ -212,7 +211,7 @@
 - 第四次挥手：主动关闭方收到`FIN`后，发送一个`ACK`给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。
 
 
-###TCP和UDP的区别
+## TCP和UDP的区别
 
 `TCP`（Transmission Control Protocol，传输控制协议）是基于连接的协议，也就是说，在正式收发数据前，必须和对方建立可靠的连接。一个`TCP`连接必须要经过三次“对话”才能建立起来
 
@@ -220,11 +219,11 @@
   UDP适用于一次只传送少量数据、对可靠性要求不高的应用环境。
 
 
-###说说你对作用域链的理解
+## 说说你对作用域链的理解
 
 作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到`window`对象即被终止，作用域链向下访问变量是不被允许的。
 
-###onmousemove和onmouseover的区别：
+## onmousemove和onmouseover的区别：
 
     时间上：onmousemove事件触发后，再触发onmouseover事件。
 
@@ -233,7 +232,7 @@
     动作上：onmouseover只在刚进入区域时触发，onmousemove除了刚进入区域触发外，在区域内移动鼠标，也会触发
 
 
-###创建ajax过程
+##创建ajax过程
 
 
     (1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.
@@ -249,7 +248,7 @@
     (6)使用JavaScript和DOM实现局部刷新.
 
 
-###渐进增强和优雅降级
+##渐进增强和优雅降级
 
 渐进增强 ：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
 
@@ -261,7 +260,7 @@
 
 ##常见web安全及防护原理
 
-###sql注入原理
+####sql注入原理
 
 
 
@@ -281,7 +280,7 @@
 
     4.不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息。
 
-###XSS原理及防范
+####XSS原理及防范
 
 Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `html`标签或者`javascript`代码。比如：攻击者在论坛中放一个
 
@@ -291,7 +290,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 
 
 
-###XSS防范方法
+####XSS防范方法
 
 首先代码里对用户输入的地方和变量都需要仔细检查长度和对`”<”,”>”,”;”,”’”`等字符做过滤；其次任何内容写到页面之前都必须加以`encode`，避免不小心把`html tag` 弄出来。这一个层面做好，至少可以堵住超过一半的`XSS` 攻击。
 
@@ -308,7 +307,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 
 
 
-###XSS与CSRF有什么区别吗？
+####XSS与CSRF有什么区别吗？
 
 
 
@@ -325,7 +324,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 ```
 
 
-###CSRF的防御
+####CSRF的防御
 
 - 服务端的`CSRF`方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。
 
@@ -1046,6 +1045,51 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
     border-image
 
+CSS3中新增了一种盒模型计算方式：`box-sizing`。盒模型默认的值是`content-box`, 新增的值是`padding-box`和`border-box`，几种盒模型计算元素宽高的区别如下：
+
+#### `content-box（默认）`
+
+布局所占宽度Width：
+
+```css
+Width = width + padding-left + padding-right + border-left + border-right
+
+```
+
+布局所占高度Height:
+
+```css
+Height = height + padding-top + padding-bottom + border-top + border-bottom
+
+padding-box
+```
+
+布局所占宽度Width：
+
+```css
+Width = width(包含padding-left + padding-right) + border-top + border-bottom
+
+```
+
+布局所占高度Height:
+
+```css
+Height = height(包含padding-top + padding-bottom) + border-top + border-bottom
+
+border-box
+```
+
+布局所占宽度Width：
+
+```css
+Width = width(包含padding-left + padding-right + border-left + border-right)
+```
+
+布局所占高度Height:
+
+```css
+Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
+```
 
 >对BFC规范的理解？
 
@@ -1315,6 +1359,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
       新的技术webworker, websocket, Geolocation
 
+![]['./imgs/what-is-html5.jpg']
 
 
 >移除的元素
