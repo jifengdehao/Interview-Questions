@@ -1360,9 +1360,8 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
       新的技术webworker, websocket, Geolocation
 
 
-![what-is-html5][1]
+![what-is-html5][16]
 
-[1]: ./imgs/what-is-html5.jpg
 
 
 >移除的元素
@@ -2780,7 +2779,8 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 
 
-  [1]: /img/bVldFY
+  [16]: /imgs/what-is-html5.jpg
+
 
   [2]: http://segmentfault.com/blog/trigkit4/1190000000718840
 
