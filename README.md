@@ -1362,7 +1362,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 ![what-is-html5][1]
 
-[1]: /imgs/what-is-html5.jpg
+[1]: ./imgs/what-is-html5.jpg
 
 
 >移除的元素
