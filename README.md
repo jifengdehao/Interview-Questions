@@ -324,7 +324,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 ```
 
 
-####CSRF的防御
+###CSRF的防御
 
 - 服务端的`CSRF`方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。
 
@@ -1359,7 +1359,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
       新的技术webworker, websocket, Geolocation
 
-![]['./imgs/what-is-html5.jpg']
+![][/imgs/what-is-html5.jpg]
 
 
 >移除的元素
