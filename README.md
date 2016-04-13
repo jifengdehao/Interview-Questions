@@ -1,10 +1,8 @@
-
-
 本文旨在加深对前端知识点的理解，资料来源于网络，由本人(博客：http://segmentfault.com/u/trigkit4) 收集整理。
 
 
 
-##一些开放性题目
+#### 一些开放性题目
 
     1.自我介绍：除了基本个人信息以外，面试官更想听的是你与众不同的地方和你的优势。
 
@@ -14,11 +12,13 @@
 
     4.平时是如何学习前端开发的？
 
-    5.未来三年的规划是怎样的？
+    5.未来三到五年的规划是怎样的？
 
 <br>
 
-##position的值， relative和absolute分别是相对于谁进行定位的？
+
+
+#### position的值， relative和absolute分别是相对于谁进行定位的？
 
 
 - `absolute` :生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。
@@ -33,11 +33,9 @@
 
 
 
-##如何解决跨域问题
+#### 如何解决跨域问题
 
-
-
-####JSONP：
+>JSONP：
 
 原理是：动态插入`script`标签，通过`script`标签引入一个`js`文件，这个js文件载入成功后会执行我们在url参数中指定的函数，并且会把我们需要的`json`数据作为参数传入。
 
@@ -51,12 +49,8 @@
 
 `JSONP`：`json+padding`（内填充），顾名思义，就是把JSON填充到一个盒子里
 
-
-
-
 ```js
 <script>
-
     function createJs(sUrl){
 
         var oScript = document.createElement('script');
@@ -78,15 +72,13 @@
 ```
 
 
-####CORS
-
-
+>CORS
 
 服务器端对于`CORS`的支持，主要就是通过设置`Access-Control-Allow-Origin`来进行的。如果浏览器检测到相应的设置，就可以允许`Ajax`进行跨域的访问。
 
 
 
-####通过修改document.domain来跨子域
+>通过修改document.domain来跨子域
 
 将子域和主域的`document.domain`设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用`document.domain`进行跨域
 
@@ -94,7 +86,7 @@
 
 主域相同的使用`document.domain`
 
-###使用window.name来进行跨域
+>使用window.name来进行跨域
 
 
 
@@ -103,7 +95,7 @@
 
 
 
-####使用HTML5中新引进的`window.postMessage`方法来跨域传送数据
+>使用HTML5中新引进的`window.postMessage`方法来跨域传送数据
 
 
 
@@ -113,7 +105,7 @@
 
 
 
-## `XML`和`JSON`的区别？
+#### `XML`和`JSON`的区别？
 
 ```html
 (1).数据体积方面。
@@ -135,37 +127,21 @@ JSON的速度要远远快于XML。
 
 
 
-##谈谈你会webpack的看法
+#### 谈谈你对webpack的看法
 
 
 
 `WebPack` 是一个模块打包工具，你可以使用`WebPack`管理你的模块依赖，并编绎输出模块们所需的静态文件。它能够很好地管理、打包Web开发中所用到的`HTML、Javascript、CSS`以及各种静态文件（图片、字体等），让开发过程更加高效。对于不同类型的资源，`webpack`有对应的模块加载器。`webpack`模块打包器会分析模块间的依赖关系，最后 生成了优化且合并后的静态资源。
 
 
-`webpack`是加强版的`Browserify`。
-
-
-
 `webpack`的两大特色：
-
-
 
     1.code splitting（可以自动完成）
 
     2.loader 可以处理各种类型的静态文件，并且支持串联操作
 
-###webpack的优势：
-
-
-
-- `require.js`的所有功能它都有。
-
-- 编绎过程更快，因为`require.js`会去处理不需要的文件
-
 
 `webpack` 是以` commonJS `的形式来书写脚本滴，但对 `AMD/CMD` 的支持也很全面，方便旧项目进行代码迁移。
-
-
 
 `webpack`具有`requireJs`和`browserify`的功能，但仍有很多自己的新特性：
 
@@ -188,7 +164,7 @@ JSON的速度要远远快于XML。
 8.webpack 使用异步 IO 并具有多级缓存。这使得 webpack 很快且在增量编译上更加快
 ```
 
-## 说说TCP传输的三次握手四次挥手策略
+#### 说说TCP传输的三次握手四次挥手策略
 
  为了准确无误地把数据送达目标处，`TCP`协议采用了三次握手策略。用TCP协议把数据包送出去后，`TCP`不会对传送    后的情况置之不理，它一定会向对方确认是否成功送达。握手过程中使用了TCP的标志：`SYN`和`ACK`。
 
@@ -211,7 +187,7 @@ JSON的速度要远远快于XML。
 - 第四次挥手：主动关闭方收到`FIN`后，发送一个`ACK`给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。
 
 
-## TCP和UDP的区别
+#### TCP和UDP的区别
 
 `TCP`（Transmission Control Protocol，传输控制协议）是基于连接的协议，也就是说，在正式收发数据前，必须和对方建立可靠的连接。一个`TCP`连接必须要经过三次“对话”才能建立起来
 
@@ -219,36 +195,28 @@ JSON的速度要远远快于XML。
   UDP适用于一次只传送少量数据、对可靠性要求不高的应用环境。
 
 
-## 说说你对作用域链的理解
+#### 说说你对作用域链的理解
 
 作用域链的作用是保证执行环境里有权访问的变量和函数是有序的，作用域链的变量只能向上访问，变量访问到`window`对象即被终止，作用域链向下访问变量是不被允许的。
 
-## onmousemove和onmouseover的区别：
 
-    时间上：onmousemove事件触发后，再触发onmouseover事件。
+#### 创建ajax过程
 
-    按钮上：不区分鼠标按钮。
+```js
+(1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.
 
-    动作上：onmouseover只在刚进入区域时触发，onmousemove除了刚进入区域触发外，在区域内移动鼠标，也会触发
+(2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.
 
+(3)设置响应HTTP请求状态变化的函数.
 
-##创建ajax过程
+(4)发送HTTP请求.
 
+(5)获取异步调用返回的数据.
 
-    (1)创建XMLHttpRequest对象,也就是创建一个异步调用对象.
+(6)使用JavaScript和DOM实现局部刷新.
+```
 
-    (2)创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息.
-
-    (3)设置响应HTTP请求状态变化的函数.
-
-    (4)发送HTTP请求.
-
-    (5)获取异步调用返回的数据.
-
-    (6)使用JavaScript和DOM实现局部刷新.
-
-
-##渐进增强和优雅降级
+#### 渐进增强和优雅降级
 
 渐进增强 ：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。
 
@@ -258,19 +226,15 @@ JSON的速度要远远快于XML。
 
 
 
-##常见web安全及防护原理
+#### 常见web安全及防护原理
 
-####sql注入原理
-
-
+>sql注入原理
 
 就是通过把SQL命令插入到Web表单递交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的SQL命令。
 
-
-
 总的来说有以下几点：
 
-
+```
 
     1.永远不要信任用户的输入，要对用户的输入进行校验，可以通过正则表达式，或限制长度，对单引号和双"-"进行转换等。
 
@@ -279,8 +243,9 @@ JSON的速度要远远快于XML。
     3.永远不要使用管理员权限的数据库连接，为每个应用使用单独的权限有限的数据库连接。
 
     4.不要把机密信息明文存放，请加密或者hash掉密码和敏感的信息。
+```
 
-####XSS原理及防范
+>XSS原理及防范
 
 Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `html`标签或者`javascript`代码。比如：攻击者在论坛中放一个
 
@@ -290,7 +255,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 
 
 
-####XSS防范方法
+>XSS防范方法
 
 首先代码里对用户输入的地方和变量都需要仔细检查长度和对`”<”,”>”,”;”,”’”`等字符做过滤；其次任何内容写到页面之前都必须加以`encode`，避免不小心把`html tag` 弄出来。这一个层面做好，至少可以堵住超过一半的`XSS` 攻击。
 
@@ -302,17 +267,13 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 其次，通过使`cookie` 和系统`ip` 绑定来降低`cookie` 泄露后的危险。这样攻击者得到的`cookie` 没有实际价值，不可能拿来重放。
 
 
-
 尽量采用`POST` 而非`GET` 提交表单
 
 
 
-####XSS与CSRF有什么区别吗？
-
-
+>XSS与CSRF有什么区别吗？
 
 `XSS`是获取信息，不需要提前知道其他用户页面的代码和数据包。`CSRF`是代替用户完成指定的动作，需要知道其他用户页面的代码和数据包。
-
 
 
 要完成一次`CSRF`攻击，受害者必须依次完成两个步骤：
@@ -324,16 +285,16 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 ```
 
 
-###CSRF的防御
+>CSRF的防御
 
 - 服务端的`CSRF`方式方法很多样，但总的思想都是一致的，就是在客户端页面增加伪随机数。
 
 - 通过验证码的方法
 
 
-##Web Worker 和webSocket
+#### Web Worker 和webSocket
 
-###worker主线程:
+>worker主线程:
 
 
 ```js
@@ -350,27 +311,22 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 
 
 
-###HTTP和HTTPS
-
-
+#### HTTP和HTTPS
 
 `HTTP`协议通常承载于TCP协议之上，有时也承载于`TLS`或`SSL`协议层之上，这个时候，就成了我们常说的HTTPS。
-
 
 
 默认HTTP的端口号为80，`HTTPS`的端口号为443。
 
 
 
-###为什么`HTTPS`安全
+#### 为什么`HTTPS`安全
 
 因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可能篡改信息，而如果使用`HTTPS`，密钥在你和终点站才有。`https`之所以比`http`安全，是因为他利用`ssl/tls`协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer传递等。保障了传输过程的安全性
 
 
 
-
-
-###对前端模块化的认识
+#### 对前端模块化的认识
 
 
 
@@ -381,8 +337,6 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 
 
 `AMD` 是提前执行，`CMD` 是延迟执行。
-
-
 
 `AMD`推荐的风格通过返回一个对象做为模块对象，`CommonJS`的风格通过对`module.exports`或`exports`的属性赋值来达到暴露模块对象的目的。
 
@@ -400,22 +354,15 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 ```
 
 
+#### Javascript垃圾回收方法
 
-
-##Javascript垃圾回收方法
-###标记清除（mark and sweep）
-
-
+>标记清除（mark and sweep）
 
 这是JavaScript最常见的垃圾回收方式，当变量进入执行环境的时候，比如函数中声明一个变量，垃圾回收器将其标记为“进入环境”，当变量离开环境的时候（函数执行结束）将其标记为“离开环境”。
 
-
-
 垃圾回收器会在运行的时候给存储在内存中的所有变量加上标记，然后去掉环境中的变量以及被环境中变量所引用的变量（闭包），在这些完成之后仍存在标记的就是要删除的变量了
 
-###引用计数(reference counting)
-
-
+>引用计数(reference counting)
 
 在低版本IE中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加1，如果该变量的值变成了另外一个，则这个值得引用次数减1，当这个值的引用次数变为0的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为0的值占用的空间。
 
@@ -425,7 +372,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 
 
 
-###你觉得前端工程的价值体现在哪
+#### 你觉得前端工程的价值体现在哪
 
 
 
@@ -441,7 +388,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 
 
 
-###谈谈性能优化问题
+#### 谈谈性能优化问题
 
 
 
@@ -477,15 +424,25 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 
 - 多个变量声明合并
 
+- 避免图片和iFrame等的空Src。空Src会重新加载当前页面，影响速度和效率
+- 尽量避免写在HTML标签中写Style属性
+
+#### 移动端性能优化
+
+- 尽量使用css3动画，开启硬件加速。
+- 适当使用`touch`事件代替`click`事件。
+- 避免使用`css3`渐变阴影效果。
+- 可以用`transform: translateZ(0)`来开启硬件加速。
+- 不滥用Float。Float在渲染时计算量比较大，尽量减少使用
+- 不滥用Web字体。Web字体需要下载，解析，重绘当前页面，尽量减少使用。
+- 合理使用requestAnimationFrame动画代替setTimeout
+- CSS中的属性（CSS3 transitions、CSS3 3D transforms、Opacity、Canvas、WebGL、Video）会触发GPU渲染，请合理使用。过渡使用会引发手机过耗电增加
+- PC端的在移动端同样适用
+
+>相关阅读：[如何做到一秒渲染一个移动页面](https://github.com/cssmagic/blog/issues/20)
 
 
-###移动端性能优化
-
-1.尽量使用css3动画，开启硬件加速。适当使用`touch`事件代替`click`事件。避免使用`css3`渐变阴影效果。
-
-
-
-###什么是Etag？
+#### 什么是Etag？
 
 
 当发送一个服务器请求时，浏览器首先会进行缓存过期判断。浏览器根据缓存过期时间判断缓存文件是否过期。<br>
@@ -508,7 +465,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 ① 只有get请求会被缓存，post请求不会
 
 
-###Expires和Cache-Control
+#### Expires和Cache-Control
 
 
 
@@ -528,7 +485,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 ```
 
 
-###ETag应用:
+#### ETag应用:
 
 
 `Etag`由服务器端生成，客户端通过`If-Match`或者说`If-None-Match`这个条件判断请求来验证资源是否修改。常见的是使用`If-None-Match`。请求一个文件的流程可能如下：
@@ -561,7 +518,7 @@ Etag 主要为了解决 `Last-Modified` 无法解决的一些问题。
 
 
 
-###栈和队列的区别?
+#### 栈和队列的区别?
 
 
 
@@ -573,9 +530,7 @@ Etag 主要为了解决 `Last-Modified` 无法解决的一些问题。
 
 
 
-###栈和堆的区别？
-
-
+#### 栈和堆的区别？
 
     栈区（stack）—   由编译器自动分配释放   ，存放函数的参数值，局部变量的值等。
 
@@ -586,10 +541,7 @@ Etag 主要为了解决 `Last-Modified` 无法解决的一些问题。
     栈（数据结构）：一种先进后出的数据结构。
 
 
-
-
-
-###快速 排序的思想并实现一个快排？
+#### 快速 排序的思想并实现一个快排？
 
 
 
@@ -634,9 +586,9 @@ Etag 主要为了解决 `Last-Modified` 无法解决的一些问题。
 ```
 
 
-###你觉得jQuery或zepto源码有哪些写的好的地方
+#### 你觉得jQuery或zepto源码有哪些写的好的地方
 
-
+(答案仅供参考)
 
 `jquery`源码封装在一个匿名函数的自执行环境中，有助于防止变量的全局污染，然后通过传入window对象参数，可以使window对象作为局部变量使用，好处是当`jquery`中访问window对象的时候，就不用将作用域链退回到顶层作用域了，从而可以更快的访问`window`对象。同样，传入`undefined`参数，可以缩短查找undefined时的作用域链。
 
@@ -654,8 +606,6 @@ Etag 主要为了解决 `Last-Modified` 无法解决的一些问题。
 
          //只要保证参数对内提供的接口的一致性，你还可以随意替换传进来的这个参数
 
-
-
         window.jQuery = window.$ = jQuery;
 
     })( window );
@@ -666,9 +616,8 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 
 
-有一些数组或对象的方法经常能使用到，应将它们保存为局部变量以提高访问速度。
+有一些数组或对象的方法经常能使用到，jQuery将其保存为局部变量以提高访问速度。
 
-将全局对象window作为参数传入，则可以使之在匿名函数内部作为局部变量访问，提供访问速度。
 
 
 
@@ -676,13 +625,13 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 
 
-###ES6的了解
+#### ES6的了解
 
 新增模板字符串（为JavaScript提供了简单的字符串插值功能）、箭头函数（操作符左边为输入的参数，而右边则是进行的操作以及返回的值`Inputs=>outputs`。）、`for-of`（用来遍历数据—例如数组中的值。）`arguments`对象可被不定参数和默认参数完美代替。`ES6`将`promise`对象纳入规范，提供了原生的`Promise`对象。增加了`let`和`const`命令，用来声明变量。增加了块级作用域。let命令实际上就增加了块级作用域。ES6规定，`var`命令和`function`命令声明的全局变量，属于全局对象的属性；`let`命令、`const`命令、`class`命令声明的全局变量，不属于全局对象的属性。。还有就是引入`module`模块的概念
 
 
 
-###js继承方式及其优缺点
+#### js继承方式及其优缺点
 
 
 
@@ -710,7 +659,7 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 
 
-###关于Http 2.0 你知道多少？
+#### 关于Http 2.0 你知道多少？
 
 
 
@@ -725,19 +674,19 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 
 <br>
-
+#### defer和async
 >defer并行加载js文件，会按照页面上script标签的顺序执行
 >async并行加载js文件，下载完成立即执行，不会按照页面上script标签的顺序执行
 
 
 
-###谈谈浮动和清除浮动
+#### 谈谈浮动和清除浮动
 
 浮动的框可以向左或向右移动，直到他的外边缘碰到包含框或另一个浮动框的边框为止。由于浮动框不在文档的普通流中，所以文档的普通流的块框表现得就像浮动框不存在一样。浮动的块框会漂浮在文档普通流的块框上。
 
 
 
-###如何评价AngularJS和BackboneJS
+#### 如何评价AngularJS和BackboneJS
 
 `backbone`具有依赖性，依赖`underscore.js`。`Backbone + Underscore + jQuery(or Zepto)` 就比一个`AngularJS` 多出了2 次HTTP请求.
 
@@ -751,7 +700,7 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 
 
-###用过哪些设计模式？
+#### 用过哪些设计模式？
 
 
 
@@ -778,7 +727,7 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 
 
-###构造函数模式
+>构造函数模式
 
 
 使用构造函数的方法 ，即解决了重复实例化的问题 ，又解决了对象识别的问题，该模式与工厂模式的不同之处在于：
@@ -794,11 +743,11 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 
 
-##说说你对闭包的理解
+#### 说说你对闭包的理解
 
 
 
-使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。
+使用闭包主要是为了设计私有的方法和变量。闭包的优点是可以避免全局变量的污染，缺点是闭包会常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。在js中，函数即闭包，只有函数才会产生作用域的概念
 
 
 闭包有三个特性：
@@ -809,10 +758,11 @@ jquery将一些原型属性和方法封装在了`jquery.prototype`中，为了�
 
 >3.参数和变量不会被垃圾回收机制回收
 
+
  具体请看：[详解js闭包](http://segmentfault.com/a/1190000000652891)
 
 
-###请你谈谈Cookie的弊端
+#### 请你谈谈Cookie的弊端
 
 
 `cookie`虽然在持久保存客户端数据提供了方便，分担了服务器存储的负担，但还是有很多局限性的。
@@ -845,7 +795,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
 
 
-###优点：极高的扩展性和可用性
+>优点：极高的扩展性和可用性
 
 
 
@@ -858,10 +808,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
     4.控制cookie的生命期，使之不会永远有效。偷盗者很可能拿到一个过期的cookie。
 
 
-
-###缺点：
-
-
+>缺点：
 
     1.`Cookie`数量和长度的限制。每个domain最多只能有20条cookie，每个cookie长度不能超过4KB，否则会被截掉.
 
@@ -872,7 +819,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
 
 
-###浏览器本地存储
+#### 浏览器本地存储
 
 
 在较高版本的浏览器中，`js`提供了`sessionStorage`和`globalStorage`。在`HTML5`中提供了`localStorage`来取代`globalStorage`。
@@ -888,7 +835,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
 
 
-###web storage和cookie的区别
+#### web storage和cookie的区别
 
 
 `Web Storage`的概念和`cookie`相似，区别是它是为了更大容量存储设计的。`Cookie`的大小是受限的，并且每次你请求一个新的页面的时候`Cookie`都会被发送过去，这样无形中浪费了带宽，另外`cookie`还需要指定作用域，不可以跨域调用。
@@ -907,7 +854,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 `localStorage`和`sessionStorage`都具有相同的操作方法，例如`setItem、getItem`和`removeItem`等
 
 
-###cookie 和session 的区别：
+#### cookie 和session 的区别：
 
      1、cookie数据存放在客户的浏览器上，session数据放在服务器上。
 
@@ -928,8 +875,6 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
         其他信息如果需要保留，可以放在COOKIE中
 
 
-
-##CSS 相关问题
 
 
 
@@ -1095,17 +1040,11 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
           BFC，块级格式化上下文，一个创建了新的BFC的盒子是独立布局的，盒子里面的子元素的样式不会影响到外面的元素。在同一个BFC中的两个毗邻的块级盒在垂直方向（和布局方向有关系）的margin会发生折叠。
 
-        （W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行布局，以及与其他元素的关系和相互作用。）
+        （W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行布局，以及与其他元素的关系和相互作用。
 
 
 
-##html部分
-
-
-
-###说说你对语义化的理解？
-
-
+#### 说说你对语义化的理解？
 
     1，去掉或者丢失样式的时候能够让页面呈现出清晰的结构
 
@@ -1117,7 +1056,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?
+#### Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?
 
 
 
@@ -1134,9 +1073,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###你知道多少种`Doctype`文档类型？
-
-
+#### 你知道多少种`Doctype`文档类型？
 
      该标签可声明三种 DTD 类型，分别表示严格版本、过渡版本以及基于框架的 HTML 文档。
 
@@ -1150,7 +1087,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###HTML与XHTML——二者有什么区别
+#### HTML与XHTML——二者有什么区别
 
     区别：
 
@@ -1171,7 +1108,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
     8.图片必须有说明文字
 
 
-###常见兼容性问题？
+#### 常见兼容性问题？
 
 
     png24位的图片在iE6浏览器上出现背景，解决方案是做成PNG8.也可以引用一段脚本处理.
@@ -1223,7 +1160,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###解释下浮动和它的工作原理？清除浮动的技巧
+#### 解释下浮动和它的工作原理？清除浮动的技巧
 
 
 
@@ -1244,7 +1181,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###浮动元素引起的问题和解决办法？
+#### 浮动元素引起的问题和解决办法？
 
 
     浮动元素引起的问题：
@@ -1297,7 +1234,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###DOM操作——怎样添加、移除、移动、复制、创建和查找节点。
+#### DOM操作——怎样添加、移除、移动、复制、创建和查找节点。
 
 
 >1）创建新节点
@@ -1334,7 +1271,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？
+#### html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？如何区分 HTML 和 HTML5？
 
 
 
@@ -1359,8 +1296,6 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
       新的技术webworker, websocket, Geolocation
 
-
-![what-is-html5][16]
 
 
 
@@ -1395,14 +1330,14 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###如何实现浏览器内多个标签页之间的通信?
+#### 如何实现浏览器内多个标签页之间的通信?
 
 
 ```js
     调用localstorge、cookies等本地存储方式
 ```
 
-###什么是 FOUC（无样式内容闪烁）？你如何来避免 FOUC？
+#### 什么是 FOUC（无样式内容闪烁）？你如何来避免 FOUC？
 
 
 ```html
@@ -1416,7 +1351,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 ```
 
 
-###null和undefined的区别？
+#### null和undefined的区别？
 
 
 `null`是一个表示"无"的对象，转为数值时为0；`undefined`是一个表示"无"的原始值，转为数值时为`NaN`。
@@ -1453,7 +1388,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###new操作符具体干了什么呢?
+#### new操作符具体干了什么呢?
 
 
        1、创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型。
@@ -1470,13 +1405,13 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
     Base.call(obj);
 
-###js延迟加载的方式有哪些？
+#### js延迟加载的方式有哪些？
 
 
     defer和async、动态创建DOM方式（创建script，插入到DOM中，加载完毕后callBack）、按需异步载入js
 
 
-###`call()` 和 `apply()` 的区别和作用？
+#### `call()` 和 `apply()` 的区别和作用？
 
 
 作用：动态改变某个类的某个方法的运行环境（执行上下文）。
@@ -1485,7 +1420,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###哪些操作会造成内存泄漏？
+#### 哪些操作会造成内存泄漏？
 
 
     内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。
@@ -1506,7 +1441,7 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###列举IE 与其他浏览器不一样的特性？
+#### 列举IE 与其他浏览器不一样的特性？
 
 
 
@@ -1531,13 +1466,11 @@ Height = height(包含padding-top + padding-bottom + border-top + border-bottom)
 
 
 
-###WEB应用从服务器主动推送Data到客户端有那些方式？
+#### WEB应用从服务器主动推送Data到客户端有那些方式？
 
 
 
 Javascript数据推送
-
-
 
 - `Commet`：基于HTTP长连接的服务器推送技术
 
@@ -1549,10 +1482,7 @@ Javascript数据推送
 
 
 
-
-
-
-###对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？
+#### 对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？
 
 
     前端是最贴近用户的程序员，比后端、数据库、产品经理、运营、安全都近。
@@ -1581,7 +1511,7 @@ Javascript数据推送
 
 
 
-###一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？
+#### 一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？
 
 
         分为4个步骤：
@@ -1609,13 +1539,7 @@ Javascript数据推送
 
 
 
-
-
-
-###javascript对象的几种创建方式
-
-
-
+#### javascript对象的几种创建方式
 
     1，工厂模式
 
@@ -1633,10 +1557,7 @@ Javascript数据推送
 
 
 
-###javascript继承的6种方法
-
-
-
+#### javascript继承的6种方法
 
     1，原型链继承
 
@@ -1655,7 +1576,7 @@ Javascript数据推送
 详情：[JavaScript继承方式详解][9]
 
 
-###ajax过程
+#### 创建ajax的过程
 
 ```js
     (1)创建`XMLHttpRequest`对象,也就是创建一个异步调用对象.
@@ -1692,9 +1613,7 @@ Javascript数据推送
 
 
 
-###异步加载和延迟加载
-
-
+#### 异步加载和延迟加载
 
     1.异步加载的方案： 动态插入script标签
 
@@ -1708,7 +1627,7 @@ Javascript数据推送
 
 
 
-###ie各版本和chrome可以并行下载多少个资源
+#### ie各版本和chrome可以并行下载多少个资源
 
 
     IE6 两个并发，iE7升级之后的6个并发，之后版本也是6个
@@ -1716,10 +1635,7 @@ Javascript数据推送
 
 
 
-###`Flash`、`Ajax`各自的优缺点，在使用中如何取舍？
-
-
-
+####`Flash`、`Ajax`各自的优缺点，在使用中如何取舍？
 
 - `Flash`适合处理多媒体、矢量图形、访问机器；对`CSS`、处理文本上不足，不容易被搜索。
 
@@ -1729,7 +1645,7 @@ Javascript数据推送
 
 
 
-###请解释一下 JavaScript 的同源策略。
+#### 请解释一下 JavaScript 的同源策略。
 
 
 概念:同源策略是客户端脚本（尤其是`Javascript`）的重要的安全度量标准。它最早出自`Netscape Navigator2.0`，其目的是防止某个文档或脚本从多个不同源装载。
@@ -1741,7 +1657,7 @@ Javascript数据推送
 
 
 
-###为什么要有同源限制？
+#### 为什么要有同源限制？
 
    我们举例说明：比如一个黑客程序，他利用`Iframe`把真正的银行登录页面嵌到他的页面上，当你使用真实的用户名，密码登录时，他的页面就可以通过`Javascript`读取到你的表单中`input`中的内容，这样用户名，密码就轻松到手了。
 
@@ -1752,7 +1668,7 @@ Javascript数据推送
 
 
 
-###GET和POST的区别，何时使用POST？
+#### GET和POST的区别，何时使用POST？
 
 
         GET：一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符
@@ -1777,7 +1693,7 @@ Javascript数据推送
 
 
 
-###事件、IE与火狐的事件机制有什么区别？ 如何阻止冒泡？
+#### 事件、IE与火狐的事件机制有什么区别？ 如何阻止冒泡？
 
 
 
@@ -1789,7 +1705,7 @@ Javascript数据推送
 
 
 
-###ajax的缺点和在IE下的问题？
+#### ajax的缺点和在IE下的问题？
 
 详情请见：[JavaScript学习总结（七）Ajax和Http状态字][14]
 
@@ -1832,54 +1748,12 @@ open('GET','demo.php?rand=+Math.random()',true);//
 还可以通过`HTML5`的`history.pushState`，来实现浏览器地址栏的无刷新改变
 
 
-###js对象的深度克隆
-
-```js
-      function clone(Obj) {
-
-            var buf;
-
-            if (Obj instanceof Array) {
-
-                buf = [];  //创建一个空的数组
-
-                var i = Obj.length;
-
-                while (i--) {
-
-                    buf[i] = clone(Obj[i]);
-
-                }
-
-                return buf;
-
-            }else if (Obj instanceof Object){
-
-                buf = {};  //创建一个空对象
-
-                for (var k in Obj) {  //为这个对象添加新的属性
-
-                    buf[k] = clone(Obj[k]);
-
-                }
-
-                return buf;
-
-            }else{
-
-                return Obj;
-
-            }
-
-        }
-```
 
 
-###网站重构的理解？
+#### 谈谈你对重构的理解
 
-
-
-    网站重构：在不改变外部行为的前提下，简化结构、添加可读性，而在网站前端保持一致的行为。也就是说是在不改变UI的情况下，对网站进行优化，在扩展的同时保持一致的UI。
+网站重构：在不改变外部行为的前提下，简化结构、添加可读性，而在网站前端保持一致的行为。也就是说是在不改变UI的情况下，对网站进行优化，
+在扩展的同时保持一致的UI。
 
 
     对于传统的网站来说重构通常是：
@@ -1922,89 +1796,7 @@ open('GET','demo.php?rand=+Math.random()',true);//
     HTTP服务器的文件缓存
 
 
-
-
-###js数组去重
-
-以下是数组去重的三种方法：
-
-```js
-    Array.prototype.unique1 = function () {
-
-      var n = []; //一个新的临时数组
-
-      for (var i = 0; i < this.length; i++) //遍历当前数组
-
-      {
-
-        //如果当前数组的第i已经保存进了临时数组，那么跳过，
-
-        //否则把当前项push到临时数组里面
-
-        if (n.indexOf(this[i]) == -1) n.push(this[i]);
-
-      }
-
-      return n;
-
-    }
-
-
-
-    Array.prototype.unique2 = function()
-
-    {
-
-    	var n = {},r=[]; //n为hash表，r为临时数组
-
-    	for(var i = 0; i < this.length; i++) //遍历当前数组
-
-    	{
-
-    		if (!n[this[i]]) //如果hash表中没有当前项
-
-    		{
-
-    			n[this[i]] = true; //存入hash表
-
-    			r.push(this[i]); //把当前数组的当前项push到临时数组里面
-
-    		}
-
-    	}
-
-    	return r;
-
-    }
-
-
-
-    Array.prototype.unique3 = function()
-
-    {
-
-    	var n = [this[0]]; //结果数组
-
-    	for(var i = 1; i < this.length; i++) //从第二项开始遍历
-
-    	{
-
-    		//如果当前数组的第i项在当前数组中第一次出现的位置不是i，
-
-    		//那么表示第i项是重复的，忽略掉。否则存入结果数组
-
-    		if (this.indexOf(this[i]) == i) n.push(this[i]);
-
-    	}
-
-    	return n;
-
-    }
-```
-
-
-
-###HTTP状态码
+#### HTTP状态码
 
 
 ```html
@@ -2041,13 +1833,11 @@ open('GET','demo.php?rand=+Math.random()',true);//
 ```
 
 
-###说说你对Promise的理解
+#### 说说你对Promise的理解
 
 
 
 依照 `Promise/A+` 的定义，`Promise` 有四种状态：
-
-
 
 	pending: 初始状态, 非 fulfilled 或 rejected.
 
@@ -2086,7 +1876,6 @@ open('GET','demo.php?rand=+Math.random()',true);//
 	        reject(Error(errMessage));
 
 	    }
-
 	});
 ```
 
@@ -2101,7 +1890,7 @@ promise.then(onFulfilled, onRejected)
 
 
 
-###说说你对前端架构师的理解
+#### 说说你对前端架构师的理解
 
 
 负责前端团队的管理及与其他团队的协调工作，提升团队成员能力和整体效率；
@@ -2111,7 +1900,7 @@ promise.then(onFulfilled, onRejected)
 
 
 
-###实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制
+#### 实现一个函数clone，可以对JavaScript中的5种主要的数据类型（包括Number、String、Object、Array、Boolean）进行值复制
 
 
 ```js
@@ -2126,17 +1915,14 @@ promise.then(onFulfilled, onRejected)
             }
 
             return o;
-
     }
 ```
 
-###说说严格模式的限制
+#### 说说严格模式的限制
 
 
 
 严格模式主要有以下限制：
-
-
 
     变量必须声明后再使用
 
@@ -2188,14 +1974,7 @@ promise.then(onFulfilled, onRejected)
 
 
 
-###什么是组件？
-
-所谓组件，即封装起来的具有独立功能的UI部件。
-
->component , widget , module , plugin ...etc
-
-
-###如何删除一个cookie
+#### 如何删除一个cookie
 
 
 
@@ -2218,24 +1997,21 @@ date.setDate(date.getDate() - 1);//真正的删除
 ```
 
 
-###`<strong>`，`<em>`和`<b>`，`<i>`标签
+#### `<strong>`，`<em>`和`<b>`，`<i>`标签
 
 
 ```html
-    <strong> 标签和 <em> 标签一样，用于强调文本，但它强调的程度更强一些。
+<strong> 标签和 <em> 标签一样，用于强调文本，但它强调的程度更强一些。
 
-    em 是 斜体强调标签，更强烈强调，表示内容的强调点。相当于html元素中的 <i>...</i>;
+em 是 斜体强调标签，更强烈强调，表示内容的强调点。相当于html元素中的 <i>...</i>;
 
-    < b > < i >是视觉要素，分别表示无意义的加粗，无意义的斜体。
+< b > < i >是视觉要素，分别表示无意义的加粗，无意义的斜体。
 
-    em 和 strong 是表达要素(phrase elements)。
-
+em 和 strong 是表达要素(phrase elements)。
 ```
 
 
-###说说你对AMD和Commonjs的理解
-
-<br>
+#### 说说你对AMD和Commonjs的理解
 
 
 
@@ -2243,9 +2019,9 @@ date.setDate(date.getDate() - 1);//真正的删除
 
 `AMD`推荐的风格通过返回一个对象做为模块对象，`CommonJS`的风格通过对`module.exports`或`exports`的属性赋值来达到暴露模块对象的目的。
 
+>详情：[也谈webpack及其开发模式](https://segmentfault.com/a/1190000004888589)
 
-
-###document.write()的用法
+#### document.write()的用法
 
 
 
@@ -2254,7 +2030,7 @@ date.setDate(date.getDate() - 1);//真正的删除
 `document.write`只能重绘整个页面。`innerHTML`可以重绘页面的一部分
 
 
-###编写一个方法 求一个字符串的字节长度
+#### 编写一个方法 求一个字符串的字节长度
 
 假设：一个英文字符占用一个字节，一个中文字符占用两个字节
 
@@ -2290,364 +2066,10 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 
 
-###如何居中一个浮动元素
 
-父元素和子元素同时左浮动，然后父元素相对左移动50%，再然后子元素相对右移动50%，或者子元素相对左移动-50%也就可以了。
-
-
-```css
-
-<style type="text/css">
-
-    .p{
-
-        position:relative;
-
-        left:50%;
-
-        float:left;
-
-    }
-
-    .c{
-
-        position:relative;
-
-        float:left;
-
-        right:50%;
-
-    }
-
-</style>
-
-
-<div class="p">
-
-    <h1 class="c">Test Float Element Center</h1>
-
-</div>
-
-```
-
-###css实现水平垂直居中
-
-
-```css
-
-<style type="text/css">
-
-    .align-center{
-
-        /*
-
-    负边距+定位：水平垂直居中（Negative Margin）
-
-
-
-    使用绝对定位将content的定点定位到body的中心，然后使用负margin（content宽高的一半），
-
-    将content的中心拉回到body的中心，已到达水平垂直居中的效果。
-
-        */
-
-        position:absolute;
-
-        left:50%;
-
-        top:50%;
-
-        width:400px;
-
-        height:400px;
-
-        margin-top:-200px;
-
-        margin-left:-200px;
-
-        border:1px dashed #333;
-
-    }
-
-```
-
-
-###css实现三栏布局，中间自适应
-
-
-
->方法一：自身浮动法。左栏左浮动，右栏右浮动。
-
-
-```css
-
-    .left , .right{
-
-                height: 300px;
-
-                width: 200px;
-
-            }
-
-            .right{
-
-                float: right;
-
-                background-color: red;
-
-            }
-
-            .left{
-
-                float: left;
-
-                background-color: #080808;
-
-            }
-
-            .middle{
-
-                height: 300px;
-
-                margin: 0 200px;//没有这行，当宽度缩小到一定程度的时候，中间的内容可能换行
-
-                background-color: blue;
-
-            }
-
-```
-
->方法二：margin负值法
-
-
-
-```css
-
-    <style>
-
-            body{
-
-                margin: 0;
-
-                padding: 0;
-
-            }
-
-            .left , .right{
-
-                height: 300px;
-
-                width: 200px;
-
-                float: left;
-
-            }
-
-            .right{
-
-                margin-left: -200px;
-
-                background-color: red;
-
-            }
-
-            .left{
-
-                margin-left: -100%;
-
-                background-color: #080808;
-
-            }
-
-            .middle{
-
-                height: 300px;
-
-                width: 100%;
-
-                float: left;
-
-                background-color: blue;
-
-            }
-
-        </style>
-
-
-
-    <!--放第一行-->
-
-    <div class="middle">middle</div>
-
-    <div class="left">left</div>
-
-    <div class="right">right</div>
-
-```
-
-
-
->方法三：绝对定位法。左右两栏采用绝对定位，分别固定于页面的左右两侧，中间的主体栏用左右margin值撑开距离。
-
-```css
-
-<style>
-    body{
-
-        margin: 0;
-
-        padding: 0;
-
-    }
-
-    .left , .right{
-
-        top: 0;
-
-        height: 300px;
-
-        width: 200px;
-
-        position: absolute;
-
-    }
-
-    .right{
-
-        right: 0;
-
-        background-color: red;
-
-    }
-
-    .left{
-
-        left: 0;
-
-        background-color: #080808;
-
-    }
-
-    .middle{
-
-        margin: 0 200px;
-
-        height: 300px;
-
-        background-color: blue;
-
-    }
-</style>
-
-
-<div class="left">left</div>
-
-<!--这种方法没有严格限定中间这栏放置何处-->
-
-<div class="middle">middle</div>
-
-<div class="right">right</div>
-
-```
-
-
-
-
-###js常用设计模式的实现思路，单例，工厂，代理，装饰，观察者模式等
-
-
-
-参考答案：
-
-
-```js
-
-    1) 单例：　任意对象都是单例，无须特别处理
-
-
-    var obj = {name: 'michaelqin', age: 30};
-
-    2) 工厂: 就是同样形式参数返回不同的实例
-    function Person() { this.name = 'Person1'; }
-    function Animal() { this.name = 'Animal1'; }
-
-    function Factory() {}
-    Factory.prototype.getInstance = function(className) {
-        return eval('new ' + className + '()');
-    }
-
-    var factory = new Factory();
-    var obj1 = factory.getInstance('Person');
-    var obj2 = factory.getInstance('Animal');
-    console.log(obj1.name); // Person1
-    console.log(obj2.name); // Animal1
-
-    3) 代理: 就是新建个类调用老类的接口,包一下
-    function Person() { }
-    Person.prototype.sayName = function() { console.log('michaelqin'); }
-    Person.prototype.sayAge = function() { console.log(30); }
-
-    function PersonProxy() {
-        this.person = new Person();
-        var that = this;
-        this.callMethod = function(functionName) {
-            console.log('before proxy:', functionName);
-            that.person[functionName](); // 代理
-            console.log('after proxy:', functionName);
-        }
-    }
-
-    var pp = new PersonProxy();
-    pp.callMethod('sayName'); // 代理调用Person的方法sayName()
-    pp.callMethod('sayAge'); // 代理调用Person的方法sayAge()
-
-    4) 观察者: 就是事件模式，比如按钮的onclick这样的应用.
-    function Publisher() {
-        this.listeners = [];
-    }
-    Publisher.prototype = {
-        'addListener': function(listener) {
-            this.listeners.push(listener);
-        },
-
-        'removeListener': function(listener) {
-            delete this.listeners[listener];
-        },
-
-        'notify': function(obj) {
-            for(var i = 0; i < this.listeners.length; i++) {
-                var listener = this.listeners[i];
-                if (typeof listener !== 'undefined') {
-                    listener.process(obj);
-                }
-            }
-        }
-    }; // 发布者
-
-    function Subscriber() {
-
-    }
-    Subscriber.prototype = {
-        'process': function(obj) {
-            console.log(obj);
-        }
-    };　// 订阅者
-
-    var publisher = new Publisher();
-    publisher.addListener(new Subscriber());
-    publisher.addListener(new Subscriber());
-    publisher.notify({name: 'michaelqin', ageo: 30}); // 发布一个对象到所有订阅者
-    publisher.notify('2 subscribers will both perform process'); // 发布一个字符串到所有订阅者
-
-```
-
-
-###说说你对MVC和MVVM的理解
-
-
+#### 说说你对MVC和MVVM的理解
 
 >`MVC`
-
 
     View 传送指令到 Controller
 
@@ -2659,24 +2081,19 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 所有通信都是单向的。
 
-
-
 `Angular`它采用双向绑定（data-binding）：`View`的变动，自动反映在 `ViewModel`，反之亦然。
 
 
     组成部分Model、View、ViewModel
 
-
     View：UI界面
 
-
     ViewModel：它是View的抽象，负责View与Model之间信息转换，将View的Command传送到Model；
-
 
     Model：数据访问层
 
 
-###请解释什么是事件代理
+#### 请解释什么是事件代理
 
 
 
@@ -2684,7 +2101,7 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 
 
-###attribute和property的区别是什么？
+#### attribute和property的区别是什么？
 
 
 
@@ -2697,25 +2114,21 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 所以：
 
-
-
 对于`html`的标准属性来说，`attribute`和`property`是同步的，是会自动更新的，
 
 但是对于自定义的属性来说，他们是不同步的，
 
 
 
-###说说网络分层里七层模型是哪七层
+#### 说说网络分层里七层模型是哪七层
 
+- 应用层：应用层、表示层、会话层（从上往下）（`HTTP、FTP、SMTP、DNS`）
 
+- 传输层（`TCP`和`UDP`）
 
-应用层：应用层、表示层、会话层（从上往下）（`HTTP、FTP、SMTP、DNS`）
+- 网络层（`IP`）
 
-传输层（`TCP`和`UDP`）
-
-网络层（`IP`）
-
-物理和数据链路层（以太网）
+- 物理和数据链路层（以太网）
 
 
 
@@ -2723,13 +2136,13 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 ```js
 
-	物理层：通过媒介传输比特,确定机械及电气规范（比特Bit）
-	数据链路层：将比特组装成帧和点到点的传递（帧Frame）
-	网络层：负责数据包从源到宿的传递和网际互连（包PackeT）
-	传输层：提供端到端的可靠报文传递和错误恢复（段Segment）
-	会话层：建立、管理和终止会话（会话协议数据单元SPDU）
-	表示层：对数据进行翻译、加密和压缩（表示协议数据单元PPDU）
-	应用层：允许访问OSI环境的手段（应用协议数据单元APDU）
+物理层：通过媒介传输比特,确定机械及电气规范（比特Bit）
+数据链路层：将比特组装成帧和点到点的传递（帧Frame）
+网络层：负责数据包从源到宿的传递和网际互连（包PackeT）
+传输层：提供端到端的可靠报文传递和错误恢复（段Segment）
+会话层：建立、管理和终止会话（会话协议数据单元SPDU）
+表示层：对数据进行翻译、加密和压缩（表示协议数据单元PPDU）
+应用层：允许访问OSI环境的手段（应用协议数据单元APDU）
 ```
 
 >各种协议
@@ -2741,7 +2154,7 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 
 
-###说说mongoDB和MySQL的区别
+#### 说说mongoDB和MySQL的区别
 
 
 
@@ -2749,9 +2162,12 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
  `mongodb`以`BSON`结构（二进制）进行存储，对海量数据存储有着很明显的优势。
 
+对比传统关系型数据库,NoSQL有着非常显著的性能和扩展性优势，与关系型数据库相比，MongoDB的优点有：
+①弱一致性（最终一致），更能保证用户的访问速度：
+②文档结构的存储方式，能够更便捷的获取数据。
 
 
-###讲讲304缓存的原理
+#### 讲讲304缓存的原理
 
 
 
@@ -2771,12 +2187,16 @@ git fetch：相当于是从远程获取最新版本到本地，不会自动merge
 
 
 
-###什么样的前端代码是好的
+#### 什么样的前端代码是好的
 
 
 高复用低耦合，这样文件小，好维护，而且好扩展。
 
 
+#### 代码题
+
+- [css代码题](./readme.html)
+- [js代码题](./readme.js)
 
 
   [16]: /imgs/what-is-html5.jpg
