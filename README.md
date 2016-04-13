@@ -23,7 +23,7 @@
 
 - `absolute` :生成绝对定位的元素， 相对于最近一级的 定位不是 static 的父元素来进行定位。
 
-- `fixed` （老IE不支持）生成绝对定位的元素，相对于浏览器窗口进行定位。
+- `fixed` （老IE不支持）生成绝对定位的元素，通常相对于浏览器窗口或 frame 进行定位。
 
 - `relative` 生成相对定位的元素，相对于其在普通流中的位置进行定位。
 
@@ -313,7 +313,7 @@ Xss(cross-site scripting)攻击指的是攻击者往Web页面里插入恶意 `ht
 
 #### HTTP和HTTPS
 
-`HTTP`协议通常承载于TCP协议之上，有时也承载于`TLS`或`SSL`协议层之上，这个时候，就成了我们常说的HTTPS。
+`HTTP`协议通常承载于TCP协议之上，在`HTTP`和`TCP`之间添加一个安全协议层（`SSL`或`TSL`），这个时候，就成了我们常说的HTTPS。
 
 
 默认HTTP的端口号为80，`HTTPS`的端口号为443。
@@ -891,7 +891,7 @@ IE 提供了一种存储可以持久化用户数据，叫做`userdata`，从`IE5
 
     (1) link属于HTML标签，而@import是CSS提供的;
 
-    (2) 页面被加载的时，link会同时被加载，而@import引用的CSS会等到页面被加载完再加载;
+    (2) 页面被加载的时，link会同时被加载，而@import被引用的CSS会等到引用它的CSS文件被加载完再加载;
 
     (3) import只在IE5以上才能识别，而link是HTML标签，无兼容问题;
 
