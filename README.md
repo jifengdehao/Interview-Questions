@@ -1006,8 +1006,8 @@ Width = width + padding-left + padding-right + border-left + border-right
 ```css
 Height = height + padding-top + padding-bottom + border-top + border-bottom
 
-padding-box
 ```
+#### `padding-box`
 
 布局所占宽度Width：
 
@@ -1021,8 +1021,10 @@ Width = width(包含padding-left + padding-right) + border-top + border-bottom
 ```css
 Height = height(包含padding-top + padding-bottom) + border-top + border-bottom
 
-border-box
+
 ```
+
+#### `border-box`
 
 布局所占宽度Width：
 
